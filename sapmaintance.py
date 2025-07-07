@@ -34,3 +34,15 @@ mean_gaps = (
 
 print(mean_gaps[mean_gaps.index.str.contains("pakowaczka", case=False)])
 print(result[result["Oznaczenie"].str.contains("pakowaczka", case=False, na=False)].sort_values(by="Data zawiadom.", ascending=False).head(20))
+
+import matplotlib.pyplot as plt
+
+top_machines = df["Oznaczenie"].value_counts().head(10)
+
+top_machines.plot(kind="barh", title="Top 10 maszyn z największą liczbą awarii")
+plt.xlabel("Liczba awarii")
+plt.ylabel("Nazwa maszyny")
+plt.gca().invert_yaxis()  
+plt.tight_layout()
+plt.show()
+
