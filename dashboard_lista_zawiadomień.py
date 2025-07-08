@@ -176,25 +176,37 @@ def update_output(machine_ids, window_days, rodzaj_select, daytype_select):
         rodzaj_label = encoders['Rodzaj zawiad.'].inverse_transform([rodzaj_select])[0]
         df_filtered = df_filtered[df_filtered['Rodzaj text'] == rodzaj_label]
 
-    scatter_data = (
-        df_filtered.groupby(['month', 'Rodzaj text'])
-        .size()
-        .reset_index(name='Liczba zgłoszeń')
-    )
-
-    # Scatter plot
-    scatter_fig = px.line(
-        scatter_data,
-        x='month',
-        y='Liczba zgłoszeń',
-        color='Rodzaj text',
-        markers=True,
-        title="Liczba zgłoszeń miesięcznie (maszyna + rodzaj)",
-        labels={'month': 'Miesiąc'},
-    )
+    if rodzaj_select == "all":
+        scatter_data = (
+            df_filtered.groupby('month')
+            .size()
+            .reset_index(name='Liczba zgłoszeń')
+        )
+        scatter_fig = px.line(
+            scatter_data,
+            x='month',
+            y='Liczba zgłoszeń',
+            markers=True,
+            title="Łączna liczba zgłoszeń miesięcznie (wszystkie rodzaje)",
+            labels={'month': 'Miesiąc'}
+        )
+    else:
+        scatter_data = (
+            df_filtered.groupby(['month', 'Rodzaj text'])
+            .size()
+            .reset_index(name='Liczba zgłoszeń')
+        )
+        scatter_fig = px.line(
+            scatter_data,
+            x='month',
+            y='Liczba zgłoszeń',
+            color='Rodzaj text',
+            markers=True,
+            title="Liczba zgłoszeń miesięcznie (maszyna + rodzaj)",
+            labels={'month': 'Miesiąc'},
+        )
 
     return text, bar_fig, heat_fig, scatter_fig
-
 
 if __name__ == "__main__":
     app.run(debug=True)
