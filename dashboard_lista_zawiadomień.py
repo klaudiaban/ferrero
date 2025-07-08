@@ -5,12 +5,10 @@ import plotly.express as px
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.preprocessing import LabelEncoder
 
-# Load and prepare data
 df = pd.read_csv("cleaned_lista_zawiadomień.csv")
 df['Data zawiadom.'] = pd.to_datetime(df['Data zawiadom.'])
 df = df.sort_values(by=['Typ maszyny', 'Data zawiadom.'])
 
-# Encode features
 features = ['Typ maszyny', 'Dzień tygodnia', 'Priorytet', 'Rodzaj zawiad.']
 encoders = {}
 for col in features:
@@ -18,7 +16,6 @@ for col in features:
     df[col] = le.fit_transform(df[col].astype(str))
     encoders[col] = le
 
-# Helper function to label data and train model for a window
 def train_model(window_days):
     df_sorted = df.sort_values(by=['Typ maszyny', 'Data zawiadom.']).copy()
     df_sorted['Następna awaria'] = df_sorted.groupby('Typ maszyny')['Data zawiadom.'].shift(-1)
@@ -35,7 +32,6 @@ def train_model(window_days):
 # Pretrain models for 1, 2, 3 day windows
 models = {d: train_model(d) for d in [1, 2, 3]}
 
-# Prepare app
 app = Dash(__name__)
 app.title = "Predykcja Awarii - Dashboard"
 
@@ -111,7 +107,7 @@ def update_output(machine_ids, window_days, rodzaj_select, daytype_select):
     if not isinstance(machine_ids, list):
         machine_ids = [machine_ids]
 
-    # Oblicz prawdopodobieństwo dla wszystkich wybranych maszyn
+    # Prawdopodobieństwo dla wszystkich wybranych maszyn
     prob_texts = []
     day_id = 2 if daytype_select == "workday" else 6 
     for m in machine_ids:
@@ -141,7 +137,7 @@ def update_output(machine_ids, window_days, rodzaj_select, daytype_select):
     for col in inputs.columns:
         inputs[col] = inputs[col].astype(int)
 
-    # 3️⃣ Bar Chart
+    # Bar Chart
     probs = models[window_days].predict_proba(inputs)[:, 1]
     machine_labels = encoders['Typ maszyny'].inverse_transform(machine_ids)
     bar_fig = px.bar(
@@ -151,7 +147,7 @@ def update_output(machine_ids, window_days, rodzaj_select, daytype_select):
         height=400
     )
 
-    # 4️⃣ Heatmap
+    # Heatmap
     heat_data = []
     for w in [1, 2, 3]:
         model = models[w]
@@ -171,26 +167,22 @@ def update_output(machine_ids, window_days, rodzaj_select, daytype_select):
         title="Heatmapa ryzyka awarii"
     )
 
-    # Month and zgłoszenie preparation
     df['month'] = df['Data zawiadom.'].dt.to_period('M').astype(str)
     df['Rodzaj text'] = encoders['Rodzaj zawiad.'].inverse_transform(df['Rodzaj zawiad.'])
 
-    # Filter by selected machines
     df_filtered = df[df['Typ maszyny'].isin(machine_ids)]
 
-    # Filter by zgłoszenie type
     if rodzaj_select != "all":
         rodzaj_label = encoders['Rodzaj zawiad.'].inverse_transform([rodzaj_select])[0]
         df_filtered = df_filtered[df_filtered['Rodzaj text'] == rodzaj_label]
 
-    # Group by month and zgłoszenie type
     scatter_data = (
         df_filtered.groupby(['month', 'Rodzaj text'])
         .size()
         .reset_index(name='Liczba zgłoszeń')
     )
 
-    # Create interactive scatter/line plot
+    # Scatter plot
     scatter_fig = px.line(
         scatter_data,
         x='month',
