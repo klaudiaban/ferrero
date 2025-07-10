@@ -1,16 +1,4 @@
-﻿Lokalizacja funkcjon						PLPA-PR-U21-010123-002											Ważne od	09.07.25
-Oznaczenie				FC MODELATOR AASTED
-
-	PLPA-PR									Ferrero Polska Produkcja
-
-		PLPA-PR-001											(NIE UŻYWAĆ) UGP1 RAF KJ
-		PLPA-PR-011											(NIE UŻYWAĆ) UGP2 KS FC
-		PLPA-PR-021											(NIE UŻYWAĆ) UGP3 PREP NUT TT
-		PLPA-PR-031											(NIE UŻYWAĆ) UGP4 KB KBW
-		PLPA-PR-041											(NIE UŻYWAĆ) CLA CUB STEL WORK
-		PLPA-PR-U05-011312											(NIE UŻYWAĆ) UGP5 B-READY, CARDS
-		PLPA-PR-U06											(NIE UŻYWAĆ) UGP6 ROCHER, TABLETS
-		PLPA-PR-U11											UGP11 RAFFAELLO
+﻿		PLPA-PR-U11											UGP11 RAFFAELLO
 
 			PLPA-PR-U11-010703											RAFFAELLO LINIA 2
 
