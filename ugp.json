@@ -1,0 +1,32 @@
+{
+    "PLPA-PR-U11": {
+        "_desc": "UGP11 RAFFAELLO",
+        "children": {
+            "PLPA-PR-U11-010703": "RAFFAELLO LINIA 2",
+            "PLPA-PR-U11-010709": "LINIA WAŻĄCO-PAKUJĄCA 12 T9 RAFFAELLO",
+            "PLPA-PR-U11-010716": "LINIA WAŻĄCO-PAKUJĄCA 7 RAFFAELLO",
+            "PLPA-PR-U11-010717": "LINIA PAKUJĄCA ERMETICO RAFFAELLO",
+            "PLPA-PR-U11-010718": "LINIA WAŻĄCO-PAKUJĄCA 8 RAFFAELLO",
+            "PLPA-PR-U11-010719": "LINIA WAŻĄCO-PAKUJĄCA 10 T45 L.19 RAFFAE",
+            "PLPA-PR-U11-010721": "LINIA WAŻĄCO-PAKUJĄCA 11 T8 L.21 RAFFAEL",
+            "PLPA-PR-U11-010796": "LINIA ROZDRABNIANIA WIÓRKA"
+        }
+    },
+    "PLPA-PR-U12": {
+        "_desc": "UGP12 NUTELLA B-READY+KINDER CARDS",
+        "children": {
+            "PLPA-PR-U12-010801": "KINDER CARDS",
+            "PLPA-PR-U12-011312": "NUTELLA B-READY"
+        }
+    },
+    "PLPA-PR-U13": {
+        "_desc": "UGP13 TABLETS+ROCHER FIGURES",
+        "children": {
+            "PLPA-PR-U13-010175": "IFCR PAKOWNIE WIEWIÓRKA/BAŁWAN/JAJKO",
+            "PLPA-PR-U13-010176": "FCR PAKOWANIE ZAJĄC G100 GR7",
+            "PLPA-PR-U13-010177": "FC ROCHER(MODELATOR&PAKOWANIE)NEW",
+            "PLPA-PR-U13-010178": "FC ROCHER(MODELATOR&PAKOWANIE)OLD",
+            "PLPA-PR-U13-010401": "TABLETS"
+        }
+    }
+}
