@@ -3,6 +3,7 @@ import pandas as pd
 import pyodbc
 import os
 from datetime import datetime
+import re
 
 FILE_PATTERNS = {
     "zlecenia": {
@@ -289,16 +290,32 @@ CONN_STR = (
     "PWD="
 )
 
+def extract_linia_from_lokalizacja(code: str) -> str:
+    if isinstance(code, str):
+        parts = code.split("-")
+        if len(parts) >= 5:
+            return "-".join(parts[:-1])
+    return None
+
 def remove_duplicates_by_primary_key(df: pd.DataFrame, primary_key: str) -> pd.DataFrame:
     if primary_key in df.columns:
         return df.drop_duplicates(subset=primary_key)
-    else:
-        return df
+    return df
 
 def process_csv(file_path: Path, settings: dict, conn):
     df = pd.read_csv(file_path, dtype=str)
     df.rename(columns=settings["column_map"], inplace=True)
-    df = df[settings["columns"]]
+
+    if settings["target_table"] == "Linie":
+        df["Linia"] = df["Lokaliz. funkc."].apply(extract_linia_from_lokalizacja)
+        df = df[df["Linia"].notna()]
+        df = df[["Linia"]].drop_duplicates()
+        df["LiniaNazwa"] = "Brak danych"
+    elif settings["target_table"] == "LokalizacjaFunkcjonalna":
+        df = df[df["LokalizacjaFunkcjonalnaId"].str.count("-") >= 4].copy()
+        df["Linia"] = df["LokalizacjaFunkcjonalnaId"].apply(extract_linia_from_lokalizacja)
+    else:
+        df = df[settings["columns"]]
 
     for col, dtype in settings["dtypes"].items():
         try:
@@ -313,12 +330,12 @@ def process_csv(file_path: Path, settings: dict, conn):
             elif dtype == "str":
                 df[col] = df[col].astype(str)
         except Exception as e:
-            print(f"Failed to convert {col}: {e}")
+            print(f"Failed to convert column {col} to {dtype}: {e}")
 
-    # Remove rows with missing primary key
-    df.dropna(subset=[settings["columns"][0]], inplace=True)
+    primary_key = settings["columns"][0]
+    df.dropna(subset=[primary_key], inplace=True)
 
-    df = remove_duplicates_by_primary_key(df, settings["columns"][0])
+    df = remove_duplicates_by_primary_key(df, primary_key)
 
     cursor = conn.cursor()
     placeholders = ", ".join(["?"] * len(settings["columns"]))
@@ -329,14 +346,10 @@ def process_csv(file_path: Path, settings: dict, conn):
         try:
             cursor.execute(sql, tuple(row[col] for col in settings["columns"]))
         except Exception as e:
-            print(f"Row insert failed: {e}")
-
-    try:
-        file_path.unlink()
-    except Exception as e:
-        print(f"Failed to delete file: {e}")
+            print(f"Row insert failed in {settings['target_table']}: {e}")
 
     conn.commit()
+
 
 def main():
     conn = pyodbc.connect(CONN_STR)
