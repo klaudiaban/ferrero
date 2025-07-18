@@ -22,7 +22,8 @@ FILE_PATTERNS = {
             "ZlecenieRodzaj": "str",
             "DataUtworzenia": "date",
             "CzasUtworzenia": "time"
-        }
+        },
+        "primary_key": "ZlecenieId"
     },
     "zawiadomienia": {
         "filename_contains": "zawiadomienia",
@@ -69,7 +70,8 @@ FILE_PATTERNS = {
             "Przestoj": "str",
             "CzasPrzestoju": "float",
             "JednostkaCzasu": "str"
-        }
+        },
+        "primary_key": "ZawiadomienieId"
     },
     "linie": {
         "filename_contains": "lokalizacja_funkcjonalna",
@@ -82,7 +84,8 @@ FILE_PATTERNS = {
         "dtypes": {
             "Linia": "str",
             "LiniaNazwa": "str"
-        }
+        },
+        "primary_key": "Linia"
     },
     "lokalizacja_funkcjonalna": {
         "filename_contains": "lokalizacja_funkcjonalna",
@@ -97,7 +100,8 @@ FILE_PATTERNS = {
             "LokalizacjaFunkcjonalnaId": "str",
             "LokalizacjaFunkcjonalnaNazwa": "str",
             "Linia": "str"
-        }
+        },
+        "primary_key": "LokalizacjaFunkcjonalnaId"
     },
     "przyczyny": {
         "filename_contains": "zawiadomienia",
@@ -110,7 +114,8 @@ FILE_PATTERNS = {
         "dtypes": {
             "PrzyczynaId": "int",
             "PrzyczynaNazwa": "str"
-        }
+        },
+        "primary_key": "PrzyczynaId"
     },
     "uszkodzenia": {
         "filename_contains": "zawiadomienia",
@@ -123,7 +128,8 @@ FILE_PATTERNS = {
         "dtypes": {
             "UszkodzenieId": "int",
             "UszkodzenieNazwa": "str"
-        }
+        },
+        "primary_key": "UszkodzenieId"
     },
     "urzadzenia": {
         "filename_contains": "urzadzenia",
@@ -136,7 +142,8 @@ FILE_PATTERNS = {
         "dtypes": {
             "UrzadzenieId": "int",
             "UrzadzenieNazwa": "str"
-        }
+        },
+        "primary_key": "UrzadzenieId"
     },
     "rodzaje_zawiadomienia": {
         "filename_contains": "rodzaje_zawiadomienia",
@@ -149,7 +156,8 @@ FILE_PATTERNS = {
         "dtypes": {
             "ZawiadomienieRodzaj": "str",
             "ZawiadomienieRodzajNazwa": "str"
-        }
+        },
+        "primary_key": "ZawiadomienieRodzaj"
     },
     "rodzaje_zlecenia": {
         "filename_contains": "rodzaje_zlecenia",
@@ -162,30 +170,8 @@ FILE_PATTERNS = {
         "dtypes": {
             "ZlecenieRodzaj": "str",
             "ZlecenieRodzajNazwa": "str"
-        }
-    },
-    "data": {
-        "filename_contains": "data",
-        "column_map": {
-            "Data": "Data",
-            "Rok": "Rok",
-            "Miesiąc": "Miesiac",
-            "Miesiąc (nazwa)": "MiesiacNazwa",
-            "Tydzień": "Tydzien",
-            "Dzień tygodnia": "DzienTygodnia",
-            "Dzień tygodnia (nazwa)": "DzienTygodniaNazwa"
         },
-        "target_table": "Data",
-        "columns": ["Data", "Rok", "Miesiac", "MiesiacNazwa", "Tydzien", "DzienTygodnia", "DzienTygodniaNazwa"],
-        "dtypes": {
-            "Data": "date",
-            "Rok": "int",
-            "Miesiac": "int",
-            "MiesiacNazwa": "str",
-            "Tydzien": "int",
-            "DzienTygodnia": "int",
-            "DzienTygodniaNazwa": "str"
-        }
+        "primary_key": "ZlecenieRodzaj"
     }
 }
 
@@ -199,6 +185,11 @@ CONN_STR = (
     "PWD=your_password"
 )
 
+def remove_duplicates_by_primary_key(df: pd.DataFrame, primary_key: str) -> pd.DataFrame:
+    if primary_key in df.columns:
+        return df.drop_duplicates(subset=primary_key)
+    else:
+        return df
 
 def process_csv(file_path: Path, settings: dict, conn):
     df = pd.read_csv(file_path)
@@ -221,6 +212,10 @@ def process_csv(file_path: Path, settings: dict, conn):
         except Exception as e:
             print(f"Failed to convert column {col} to {dtype}: {e}")
 
+    # Get primary key column name
+    primary_key = settings.get("primary_key")
+    if primary_key:
+        df = remove_duplicates_by_primary_key(df, primary_key)
 
     cursor = conn.cursor()
 
@@ -236,10 +231,8 @@ def process_csv(file_path: Path, settings: dict, conn):
             print(f"Row insert failed: {e}")
 
     conn.commit()
-
     file_path.rename(file_path.with_suffix(".imported.csv"))
 
-# === MAIN SCRIPT ===
 
 def main():
     conn = pyodbc.connect(CONN_STR)
