@@ -77,7 +77,7 @@ CREATE TABLE [Data] (
   [Tydzien] int,
   [DzienTygodnia] int,
   [DzienTygodniaNazwa] varchar(20),
-  [Kampania] varchar(10)
+  [Kampania] varchar(9)
 )
 GO
 
