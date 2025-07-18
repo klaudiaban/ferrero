@@ -1,3 +1,176 @@
+CREATE TABLE [Zlecenia] (
+  [ZlecenieId] bigint PRIMARY KEY,
+  [ZlecenieRodzaj] varchar(10),
+  [DataUtworzenia] date,
+  [CzasUtworzenia] time
+)
+GO
+
+CREATE TABLE [Zawiadomienia] (
+  [ZawiadomienieId] int PRIMARY KEY,
+  [ZawiadomienieRodzaj] varchar(10),
+  [ZlecenieId] bigint,
+  [Lokalizacja] varchar(20),
+  [LokalizacjaFunkcjonalnaId] varchar(20),
+  [UrzadzenieId] int,
+  [DataUtworzenia] date,
+  [UszkodzenieId] tinyint,
+  [PrzyczynaId] tinyint,
+  [DataPoczatkuZaklocenia] date,
+  [DataKoncaZaklocenia] date,
+  [CzasPoczatkuZaklocenia] time,
+  [CzasKoncaZaklocenia] time,
+  [Przestoj] char(1),
+  [CzasPrzestoju] float,
+  [JednostkaCzasu] varchar(10)
+)
+GO
+
+CREATE TABLE [Linie] (
+  [Linia] varchar(20) PRIMARY KEY,
+  [LiniaNazwa] varchar(50)
+)
+GO
+
+CREATE TABLE [LokalizacjaFunkcjonalna] (
+  [LokalizacjaFunkcjonalnaId] varchar(20) PRIMARY KEY,
+  [LokalizacjaFunkcjonalnaNazwa] varchar(50),
+  [Linia] varchar(20)
+)
+GO
+
+CREATE TABLE [Przyczyny] (
+  [PrzyczynaId] int PRIMARY KEY,
+  [PrzyczynaNazwa] varchar(50)
+)
+GO
+
+CREATE TABLE [Uszkodzenia] (
+  [UszkodzenieId] int PRIMARY KEY,
+  [UszkodzenieNazwa] varchar(50)
+)
+GO
+
+CREATE TABLE [Urzadzenia] (
+  [UrzadzenieId] int PRIMARY KEY,
+  [UrzadzenieNazwa] varchar(50)
+)
+GO
+
+CREATE TABLE [RodzajeZawiadomienia] (
+  [ZawiadomienieRodzaj] nvarchar(255) PRIMARY KEY,
+  [ZawiadomienieRodzajNazwa] varchar(50)
+)
+GO
+
+CREATE TABLE [RodzajeZlecenia] (
+  [ZlecenieRodzaj] varchar(10) PRIMARY KEY,
+  [ZlecenieRodzajNazwa] varchar(50)
+)
+GO
+
+CREATE TABLE [Data] (
+  [Data] date PRIMARY KEY,
+  [Rok] int,
+  [Miesiac] int,
+  [MiesiacNazwa] varchar(20),
+  [Tydzien] int,
+  [DzienTygodnia] int,
+  [DzienTygodniaNazwa] varchar(20),
+  [Kampania] varchar(10)
+)
+GO
+
+CREATE TABLE [BilansProdukcji] (
+  [Od] date,
+  [Do] date,
+  [Linia] int,
+  [Rodzina] int,
+  [QLTotalAkt] float,
+  [QLTotalPln] float,
+  [ProcentDvtProduk] float,
+  [ZmianaCzysty] float,
+  [ZmianaPrg] float,
+  [ZmianaStd] float,
+  [QZmianaAkt] float,
+  [QZmianaDocel] float,
+  [QZmianaStd] float,
+  [QCPKAkt] float,
+  [QCPKDocel] float,
+  [QCPKStd] float,
+  [OpeLNShAkt] float,
+  [OpeLNShDocel] float,
+  [OpeLNShStd] float,
+  [OpeELShAkt] float,
+  [OpeELShDocel] float,
+  [OpeELShStd] float,
+  [GQLAkt] float,
+  [GQLDocel] float,
+  [GQLStd] float,
+  [ProcentSCEff] float,
+  [ProcentSCStd] float,
+  [ProcentSREff] float,
+  [ProcentSRStd] float,
+  [ProcentSFSPEff] float,
+  [ProcentSFSPStd] float,
+  [GodzPracAkt] float,
+  [GodzPracDocel] float,
+  [GodzPracStd] float,
+  [ProcentELiniaEff] float,
+  [ProcentELiniaObb] float,
+  [ProcentELiniaStd] float,
+  [ProcentEPracEff] float,
+  [ProcentEPracObb] float,
+  [ProcentEPracStd] float,
+  [ProcentZyskuEff] float,
+  [ProcentZyskuObb] float,
+  [ProcentZyskuStd] float
+)
+GO
+
+ALTER TABLE [Zawiadomienia] ADD FOREIGN KEY ([ZlecenieId]) REFERENCES [Zlecenia] ([ZlecenieId])
+GO
+
+ALTER TABLE [Zawiadomienia] ADD FOREIGN KEY ([PrzyczynaId]) REFERENCES [Przyczyny] ([PrzyczynaId])
+GO
+
+ALTER TABLE [Zawiadomienia] ADD FOREIGN KEY ([UszkodzenieId]) REFERENCES [Uszkodzenia] ([UszkodzenieId])
+GO
+
+ALTER TABLE [Zawiadomienia] ADD FOREIGN KEY ([UrzadzenieId]) REFERENCES [Urzadzenia] ([UrzadzenieId])
+GO
+
+ALTER TABLE [Zawiadomienia] ADD FOREIGN KEY ([ZawiadomienieRodzaj]) REFERENCES [RodzajeZawiadomienia] ([ZawiadomienieRodzaj])
+GO
+
+ALTER TABLE [Zlecenia] ADD FOREIGN KEY ([ZlecenieRodzaj]) REFERENCES [RodzajeZlecenia] ([ZlecenieRodzaj])
+GO
+
+ALTER TABLE [Zawiadomienia] ADD FOREIGN KEY ([DataUtworzenia]) REFERENCES [Data] ([Data])
+GO
+
+ALTER TABLE [Zawiadomienia] ADD FOREIGN KEY ([LokalizacjaFunkcjonalnaId]) REFERENCES [LokalizacjaFunkcjonalna] ([LokalizacjaFunkcjonalnaId])
+GO
+
+ALTER TABLE [LokalizacjaFunkcjonalna] ADD FOREIGN KEY ([Linia]) REFERENCES [Linie] ([Linia])
+GO
+
+ALTER TABLE [BilansProdukcji] ADD FOREIGN KEY ([Linia]) REFERENCES [Linie] ([Linia])
+GO
+
+ALTER TABLE [BilansProdukcji] ADD FOREIGN KEY ([Od]) REFERENCES [Data] ([Data])
+GO
+
+ALTER TABLE [BilansProdukcji] ADD FOREIGN KEY ([Do]) REFERENCES [Data] ([Data])
+GO
+
+ALTER TABLE [Zawiadomienia] ADD FOREIGN KEY ([DataPoczatkuZaklocenia]) REFERENCES [Data] ([Data])
+GO
+
+ALTER TABLE [Zawiadomienia] ADD FOREIGN KEY ([DataKoncaZaklocenia]) REFERENCES [Data] ([Data])
+GO
+
+
 DECLARE @StartDate DATE = '2010-01-01';
 DECLARE @EndDate DATE = '2030-12-31';
 SET DATEFIRST 1;
