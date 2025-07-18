@@ -3,7 +3,6 @@ import pandas as pd
 import pyodbc
 import os
 from datetime import datetime
-import re
 
 FILE_PATTERNS = {
     "zlecenia": {
@@ -349,7 +348,6 @@ def process_csv(file_path: Path, settings: dict, conn):
             print(f"Row insert failed in {settings['target_table']}: {e}")
 
     conn.commit()
-
 
 def main():
     conn = pyodbc.connect(CONN_STR)
