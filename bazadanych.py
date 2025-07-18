@@ -4,11 +4,9 @@ import pyodbc
 import os
 from datetime import datetime
 
-FOLDER_PATH = Path("G:/projekt")
-
 FILE_PATTERNS = {
     "zlecenia": {
-        "filename_contains": "zlecenia",
+        "folder": "zlecenia",
         "column_map": {
             "Nr zlecenia": "ZlecenieId",
             "Rodzaj": "ZlecenieRodzaj",
@@ -26,7 +24,7 @@ FILE_PATTERNS = {
         "primary_key": "ZlecenieId"
     },
     "zawiadomienia": {
-        "filename_contains": "zawiadomienia",
+        "folder": "zawiadomienia",
         "column_map": {
             "Zawiadomienie": "ZawiadomienieId",
             "Rodzaj": "ZawiadomienieRodzaj",
@@ -74,7 +72,7 @@ FILE_PATTERNS = {
         "primary_key": "ZawiadomienieId"
     },
     "linie": {
-        "filename_contains": "lokalizacja_funkcjonalna",
+        "folder": "lokalizacja_funkcjonalna",
         "column_map": {
             "Lokaliz. funkc.": "Linia",
             "Oznaczenie": "LiniaNazwa"
@@ -88,7 +86,7 @@ FILE_PATTERNS = {
         "primary_key": "Linia"
     },
     "lokalizacja_funkcjonalna": {
-        "filename_contains": "lokalizacja_funkcjonalna",
+        "folder": "lokalizacja_funkcjonalna",
         "column_map": {
             "Lokaliz. funkc.": "LokalizacjaFunkcjonalnaId",
             "Oznaczenie": "LokalizacjaFunkcjonalnaNazwa",
@@ -104,7 +102,7 @@ FILE_PATTERNS = {
         "primary_key": "LokalizacjaFunkcjonalnaId"
     },
     "przyczyny": {
-        "filename_contains": "zawiadomienia",
+        "folder": "zawiadomienia",
         "column_map": {
             "Kod przyczyny": "PrzyczynaId",
             "Tekst kodu przyczyny": "PrzyczynaNazwa"
@@ -118,7 +116,7 @@ FILE_PATTERNS = {
         "primary_key": "PrzyczynaId"
     },
     "uszkodzenia": {
-        "filename_contains": "zawiadomienia",
+        "folder": "zawiadomienia",
         "column_map": {
             "Kod uszkodzenia": "UszkodzenieId",
             "Tekst dot. szkody": "UszkodzenieNazwa"
@@ -132,7 +130,7 @@ FILE_PATTERNS = {
         "primary_key": "UszkodzenieId"
     },
     "urzadzenia": {
-        "filename_contains": "urzadzenia",
+        "folder": "urzadzenia",
         "column_map": {
             "Urządzenie": "UrzadzenieId",
             "Oznaczenie obiektu technicznego": "UrzadzenieNazwa"
@@ -146,7 +144,7 @@ FILE_PATTERNS = {
         "primary_key": "UrzadzenieId"
     },
     "rodzaje_zawiadomienia": {
-        "filename_contains": "rodzaje_zawiadomienia",
+        "folder": "rodzaje_zawiadomienia",
         "column_map": {
             "Rdz.": "ZawiadomienieRodzaj",
             "Rodzaj zawiadomienia": "ZawiadomienieRodzajNazwa"
@@ -160,7 +158,7 @@ FILE_PATTERNS = {
         "primary_key": "ZawiadomienieRodzaj"
     },
     "rodzaje_zlecenia": {
-        "filename_contains": "rodzaje_zlecenia",
+        "folder": "rodzaje_zlecenia",
         "column_map": {
             "Rdz.": "ZlecenieRodzaj",
             "Oznaczenie": "ZlecenieRodzajNazwa"
@@ -172,17 +170,123 @@ FILE_PATTERNS = {
             "ZlecenieRodzajNazwa": "str"
         },
         "primary_key": "ZlecenieRodzaj"
+    },
+    "bilans_produkcji": {
+        "folder": "bilans",
+        "column_map": {
+            "Od": "Od",
+            "Do": "Do",
+            "Linia": "Linia",
+            "Rodzina": "Rodzina",
+            "QLTotalAkt": "QLTotalAkt",
+            "QLTotalPln": "QLTotalPln",
+            "ProcentDvtProduk": "ProcentDvtProduk",
+            "ZmianaCzysty": "ZmianaCzysty",
+            "ZmianaPrg": "ZmianaPrg",
+            "ZmianaStd": "ZmianaStd",
+            "QZmianaAkt": "QZmianaAkt",
+            "QZmianaDocel": "QZmianaDocel",
+            "QZmianaStd": "QZmianaStd",
+            "QCPKAkt": "QCPKAkt",
+            "QCPKDocel": "QCPKDocel",
+            "QCPKStd": "QCPKStd",
+            "OpeLNShAkt": "OpeLNShAkt",
+            "OpeLNShDocel": "OpeLNShDocel",
+            "OpeLNShStd": "OpeLNShStd",
+            "OpeELShAkt": "OpeELShAkt",
+            "OpeELShDocel": "OpeELShDocel",
+            "OpeELShStd": "OpeELShStd",
+            "GQLAkt": "GQLAkt",
+            "GQLDocel": "GQLDocel",
+            "GQLStd": "GQLStd",
+            "ProcentSCEff": "ProcentSCEff",
+            "ProcentSCStd": "ProcentSCStd",
+            "ProcentSREff": "ProcentSREff",
+            "ProcentSRStd": "ProcentSRStd",
+            "ProcentSFSPEff": "ProcentSFSPEff",
+            "ProcentSFSPStd": "ProcentSFSPStd",
+            "GodzPracAkt": "GodzPracAkt",
+            "GodzPracDocel": "GodzPracDocel",
+            "GodzPracStd": "GodzPracStd",
+            "ProcentELiniaEff": "ProcentELiniaEff",
+            "ProcentELiniaObb": "ProcentELiniaObb",
+            "ProcentELiniaStd": "ProcentELiniaStd",
+            "ProcentEPracEff": "ProcentEPracEff",
+            "ProcentEPracObb": "ProcentEPracObb",
+            "ProcentEPracStd": "ProcentEPracStd",
+            "ProcentZyskuEff": "ProcentZyskuEff",
+            "ProcentZyskuObb": "ProcentZyskuObb",
+            "ProcentZyskuStd": "ProcentZyskuStd"
+        },
+        "target_table": "BilansProdukcji",
+        "columns": [
+            "Od", "Do", "Linia", "Rodzina", "QLTotalAkt", "QLTotalPln", "ProcentDvtProduk",
+            "ZmianaCzysty", "ZmianaPrg", "ZmianaStd", "QZmianaAkt", "QZmianaDocel", "QZmianaStd",
+            "QCPKAkt", "QCPKDocel", "QCPKStd", "OpeLNShAkt", "OpeLNShDocel", "OpeLNShStd",
+            "OpeELShAkt", "OpeELShDocel", "OpeELShStd", "GQLAkt", "GQLDocel", "GQLStd",
+            "ProcentSCEff", "ProcentSCStd", "ProcentSREff", "ProcentSRStd",
+            "ProcentSFSPEff", "ProcentSFSPStd", "GodzPracAkt", "GodzPracDocel", "GodzPracStd",
+            "ProcentELiniaEff", "ProcentELiniaObb", "ProcentELiniaStd",
+            "ProcentEPracEff", "ProcentEPracObb", "ProcentEPracStd",
+            "ProcentZyskuEff", "ProcentZyskuObb", "ProcentZyskuStd"
+        ],
+        "dtypes": {
+            "Od": "date",
+            "Do": "date",
+            "Linia": "int",
+            "Rodzina": "int",
+            "QLTotalAkt": "float",
+            "QLTotalPln": "float",
+            "ProcentDvtProduk": "float",
+            "ZmianaCzysty": "float",
+            "ZmianaPrg": "float",
+            "ZmianaStd": "float",
+            "QZmianaAkt": "float",
+            "QZmianaDocel": "float",
+            "QZmianaStd": "float",
+            "QCPKAkt": "float",
+            "QCPKDocel": "float",
+            "QCPKStd": "float",
+            "OpeLNShAkt": "float",
+            "OpeLNShDocel": "float",
+            "OpeLNShStd": "float",
+            "OpeELShAkt": "float",
+            "OpeELShDocel": "float",
+            "OpeELShStd": "float",
+            "GQLAkt": "float",
+            "GQLDocel": "float",
+            "GQLStd": "float",
+            "ProcentSCEff": "float",
+            "ProcentSCStd": "float",
+            "ProcentSREff": "float",
+            "ProcentSRStd": "float",
+            "ProcentSFSPEff": "float",
+            "ProcentSFSPStd": "float",
+            "GodzPracAkt": "float",
+            "GodzPracDocel": "float",
+            "GodzPracStd": "float",
+            "ProcentELiniaEff": "float",
+            "ProcentELiniaObb": "float",
+            "ProcentELiniaStd": "float",
+            "ProcentEPracEff": "float",
+            "ProcentEPracObb": "float",
+            "ProcentEPracStd": "float",
+            "ProcentZyskuEff": "float",
+            "ProcentZyskuObb": "float",
+            "ProcentZyskuStd": "float"
+        }
     }
 }
 
+BASE_FOLDER = Path("G:/projekt")
 
 # SQL SERVER
 CONN_STR = (
-    "DRIVER={ODBC Driver 17 for SQL Server};"
-    "SERVER=your_server.database.windows.net;"
-    "DATABASE=your_database;"
-    "UID=your_username;"
-    "PWD=your_password"
+    "DRIVER={};"
+    "SERVER=;"
+    "DATABASE=;"
+    "UID=;"
+    "PWD="
 )
 
 def remove_duplicates_by_primary_key(df: pd.DataFrame, primary_key: str) -> pd.DataFrame:
@@ -192,12 +296,11 @@ def remove_duplicates_by_primary_key(df: pd.DataFrame, primary_key: str) -> pd.D
         return df
 
 def process_csv(file_path: Path, settings: dict, conn):
-    df = pd.read_csv(file_path)
-
+    df = pd.read_csv(file_path, dtype=str)
     df.rename(columns=settings["column_map"], inplace=True)
     df = df[settings["columns"]]
 
-    for col, dtype in settings.get("dtypes", {}).items():
+    for col, dtype in settings["dtypes"].items():
         try:
             if dtype == "int":
                 df[col] = pd.to_numeric(df[col], errors="coerce").astype("Int64")
@@ -210,41 +313,47 @@ def process_csv(file_path: Path, settings: dict, conn):
             elif dtype == "str":
                 df[col] = df[col].astype(str)
         except Exception as e:
-            print(f"Failed to convert column {col} to {dtype}: {e}")
+            print(f"Failed to convert {col}: {e}")
 
-    # Get primary key column name
-    primary_key = settings.get("primary_key")
-    if primary_key:
-        df = remove_duplicates_by_primary_key(df, primary_key)
+    # Remove rows with missing primary key
+    df.dropna(subset=[settings["columns"][0]], inplace=True)
+
+    df = remove_duplicates_by_primary_key(df, settings["columns"][0])
 
     cursor = conn.cursor()
-
-    columns = settings["columns"]
-    col_names = ", ".join(columns)
-    placeholders = ", ".join(["?"] * len(columns))
+    placeholders = ", ".join(["?"] * len(settings["columns"]))
+    col_names = ", ".join(settings["columns"])
     sql = f"INSERT INTO {settings['target_table']} ({col_names}) VALUES ({placeholders})"
 
     for _, row in df.iterrows():
         try:
-            cursor.execute(sql, tuple(row[col] for col in columns))
+            cursor.execute(sql, tuple(row[col] for col in settings["columns"]))
         except Exception as e:
             print(f"Row insert failed: {e}")
 
-    conn.commit()
-    file_path.rename(file_path.with_suffix(".imported.csv"))
+    try:
+        file_path.unlink()
+    except Exception as e:
+        print(f"Failed to delete file: {e}")
 
+    conn.commit()
 
 def main():
     conn = pyodbc.connect(CONN_STR)
-    for file_path in FOLDER_PATH.glob("*.csv"):
-        for key, settings in FILE_PATTERNS.items():
-            if settings["filename_contains"].lower() in file_path.name.lower():
-                try:
-                    process_csv(file_path, settings, conn)
-                except Exception as e:
-                    print(f"Error processing {file_path.name}: {e}")
-                break
+
+    for key, settings in FILE_PATTERNS.items():
+        folder = BASE_FOLDER / settings["folder"]
+        if not folder.exists():
+            continue
+
+        for file_path in folder.glob("*.csv"):
+            try:
+                process_csv(file_path, settings, conn)
+            except Exception as e:
+                print(f"Error processing {file_path.name}: {e}")
+
     conn.close()
 
 if __name__ == "__main__":
     main()
+
