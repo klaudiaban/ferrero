@@ -1,17 +1,15 @@
 import pandas as pd
 import dash
 from dash import dcc, html, Output, Input
-import plotly.express as px
 import datetime as dt
+import plotly.graph_objects as go
 
 # Load CSV
 prod = pd.read_csv("test.csv", sep=";", encoding="utf-8-sig")
 prod = prod.drop_duplicates()
 
-# Fix headers with BOM characters
 prod.columns = prod.columns.str.strip().str.replace('\uFEFF', '')
 
-# Ensure numeric columns are cleaned
 def clean_numeric(col):
     return (
         prod[col].astype(str)
@@ -20,15 +18,12 @@ def clean_numeric(col):
         .astype(float)
     )
 
-# Columns of interest
 kpi_pairs = {
     "QL (TOT)": ["QL (TOT) Akt", "QL (TOT) Pln"],
     "Q/Zm.": ["Q/Zm. Akt", "Q/Zm. Standard"],
     "Q/CPK": ["Q/CPK Akt", "Q/CPK Docel"],
     "G/QL": ["G/QL Akt", "G/QL Docel"],
-    "Godz./Prac.": ["Akt Godz./Prac.", "Std. Godz. Prac."],
-    "% Scrap": ["% SF/SP Eff", "% SF/SP Std."],
-    "Oszczędności Godz./Prac.": ["Suma Oszczędności Godz./Prac."]
+    "% Scrap": ["% SF/SP Eff", "% SF/SP Std."]
 }
 
 # Clean necessary columns
@@ -79,14 +74,6 @@ app.layout = html.Div(className='p-6 font-sans space-y-4', children=[
 ])
 
 
-# ------------------------------------------------------------------
-# Callbacks – targets rendered as line, actuals as bars
-# ------------------------------------------------------------------
-import plotly.graph_objects as go
-
-# ------------------------------------------------------------------
-# Callbacks – target dashed line, period switch (week / month)
-# ------------------------------------------------------------------
 @app.callback(
     Output('plots', 'children'),
     [Input('line-select', 'value'),
@@ -102,11 +89,9 @@ def update_kpis(selected_line, period):
         title_suffix = f" (Linia {selected_line})"
 
     if period == "MONTH":
-        # Convert ISO week code to first day of that week, then month label “YYYY-MM”
-        #   e.g. “W05” → 2025-02-03 → “2025-02”
         def week_to_month(iso_week):
             week_num = int(iso_week.lstrip('W'))
-            # assume data from 2025; change if multi-year
+            # assume data from 2025
             date = dt.date(2025, 1, 4) + dt.timedelta(days=(week_num-1)*7)
             first_monday = date - dt.timedelta(days=date.weekday())
             return first_monday.strftime("%Y-%m")
@@ -131,7 +116,6 @@ def update_kpis(selected_line, period):
             .sort_values('PERIOD')
         )
 
-        import plotly.graph_objects as go
         fig = go.Figure()
         fig.add_trace(go.Bar(x=dff['PERIOD'], y=dff[actual_col],
                              name='Actual', opacity=0.7))
@@ -148,6 +132,6 @@ def update_kpis(selected_line, period):
 
     return graphs
 
-# Run app
+
 if __name__ == '__main__':
     app.run(debug=True)
