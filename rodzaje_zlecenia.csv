@@ -1,0 +1,840 @@
+﻿Rdz.;Oznaczenie
+$$;Wzorzec zleceń wewnętrznych
+1001;Internal STI
+1002;Sales STI.
+1003;Structure STI
+1004;Internal Orders Other Costs Canada
+AR01;Internal Orders Product Australia
+AR02;Internal Orders Marketing Australia
+AR03;Internal Orders Trade Australia
+AR04;Internal Orders Other costs Australia
+AR05;Main Events Francia
+AR10;Internal Orders Investment Australia
+AR20;Internal Order Statistical Australia
+AR21;Internal Order Statistical C&D Argentina
+AR60;Zlec. ręczne R/3 (konf. - norm.)
+AR61;Norm. produkcja z APO
+AR62;Konfekcja z APO
+AR65;FR Re-packing orders via prod. model
+AR66;Zlecenie testowe
+AR67;Zbieracz dodatkowych koszt. dla zlec. te
+AR69;Zmiana kodu zlecenia Z BOM
+AR79;Czyszczenie 'Suprise'
+AR82;IT Manual R/3 order (copacker - normal)
+ARM1;WO - Corrective Maintenance
+ARM2;WO - Preventive Maintenance Scheduled
+ARM3;WO - Preventive Maintenance Conditional
+ARM4;WO - Improvement Maintenance
+ARM5;WO - Shut Down Maintenance
+ARM6;WO - Corrective Maintenance Postponed
+ARM7;WO - Operational Assis.during production
+ARM8;WO - Operational Assis during no product
+ARM9;WO - Unpredictable Cost
+ARMA;WO - Others Cost
+ARMB;WO - New Investments (Commessa)
+ARMF;WO - Building Works
+AT01;Internal Orders Product OSTERREICH
+AT02;Internal Orders Marketing OSTERREICH
+AT03;Internal Orders Trade  OSTERREICH
+AT04;Internal Orders Other costs OSTERREICH
+AT10;Internal Orders Investment OSTERREICH
+AT20;Internal Order Statistical OSTERREICH
+AT21;Internal Order Statistical C&D OSTERREIC
+AT60;FR Manual R/3 order (copacker - normal)
+AT62;Konfekcja z APO
+AU01;Internal Orders Product Australia
+AU02;Internal Orders Marketing Australia
+AU03;Internal Orders Trade Australia
+AU04;Internal Orders Other costs Australia
+AU07;Internal Orders Marketing Australia
+AU10;Internal Orders Investment Australia
+AU20;Internal Order Statistical Australia
+AU21;Internal Order Statistical C&D Australia
+AU60;Zlec. ręczne R/3 (konf. - norm.)
+AU61;Norm. produkcja z APO
+AU62;Konfekcja z APO
+AU65;AU Zlec. przepakow. z model.produkc.
+AU66;Zlecenie testowe
+AU67;Zbieracz dodatkowych koszt. dla zlec. te
+AUM1;WO - Corrective Maintenance
+AUM2;WO - Preventive Maintenance Scheduled
+AUM3;WO - Preventive Maintenance Conditional
+AUM4;WO - Improvement Maintenance
+AUM5;WO - Shut Down Maintenance
+AUM6;WO - Corrective Maintenance Postponed
+AUM7;WO - Operational Assis.during production
+AUM8;WO - Operational Assis during no product
+AUM9;WO - Unpredictable Cost
+AUMA;WO - Others Cost
+AUMB;WO - New Investments (Commessa)
+AUMF;WO - Building Works
+B201;Internal Orders Product Ferrero SA
+B202;Internal Orders Marketing Ferrero SA
+B203;Internal Orders Trade Ferrero SA
+B204;Internal Orders Other Costs Ferrero SA
+B207;Internal Orders Marketing Ferrero SA
+B210;Internal Orders Investment Ferrero SA
+B220;Internal Order Statistical Ferrero SA
+B250;Internal Order Copacking Ferrero SA
+B301;Internal Orders Product Soremartec S.A.
+B303;Internal Orders Trade Soremartec S.A.
+B304;Internal Order Other Costs Schweiz
+B310;Internal Orders Investment Soremartec
+B320;Internal Orders Statistical Soremartec
+BE10;Internal Orders Investment Ardenne
+BE20;Internal Order Statistical Ardenne
+BE60;BE Manual R/3 order (copacker - normal)
+BE61;BE Normal production via APO
+BE62;BE Co-packer production via APO
+BE65;BE Re-packing orders via prod. model
+BE66;IT test order
+BE67;IT test order
+BE69;Zmiana kodu zlecenia Z BOM
+BE75;IT Re-packing orders via prod. model
+BE81;BE Manual R/3 order (copacker - normal)
+BE82;BE Manual R/3 order (copacker - normal)
+BEM1;Breakdown emergency
+BEM2;Preventive cycle
+BEM3;Preventive condition
+BEM4;Ameliorative
+BEM5;Revisions
+BEM6;Breakdown deferrable
+BEM7;Operational assistance
+BEM8;Operational assistance no production
+BEM9;WO - Unpredictable cost
+BEMA;MO - others cost
+BEMB;WO - New investments (Commessa)
+BEMF;WO - Building works
+BEMK;Non-depreciable assets
+BG04;Internal Order Other Costs Agri Bulgaria
+BG10;Internal Orders Investment Australia
+BG20;Internal Order Statistical Agri Bulgaria
+BR01;Internal Orders Product Australia
+BR02;Internal Orders Marketing Australia
+BR03;Internal Orders Trade Australia
+BR04;Internal Orders Other costs Australia
+BR05;Main Events Francia
+BR07;Internal Orders Marketing Australia
+BR10;Internal Orders Investment Australia
+BR20;Internal Order Statistical Australia
+BR60;Zlec. ręczne R/3 (konf. - norm.)
+BR61;Norm. produkcja z APO
+BR65;FR Re-packing orders via prod. model
+BR66;Zlecenie testowe
+BR67;Zbieracz dodatkowych koszt. dla zlec. te
+BRM1;WO - Corrective Maintenance
+BRM2;WO - Preventive Mainten. (Scheduled)
+BRM3;WO - Preventive Mainten. (Conditional)
+BRM4;WO - Improvement Maintenance
+BRM5;WO - Shut Down Maintenance
+BRM6;WO - Corrective Maintenance (Postponed)
+BRM7;WO - Operational Assis. during prod.
+BRM8;WO - Operational Assis. during no prod.
+BRM9;WO - Unpredictable Cost
+BRMA;WO - Others Cost
+BRMB;WO - New Investments (Commessa)
+BRMF;WO - Building works
+BRMK;WO - Non-Depreciable
+C110;
+C120;
+C160;USA Manual R/3 order (copacker - normal)
+C161;Norm. produkcja z APO
+C162;Konfekcja z APO
+C165;FR Re-packing orders via prod. model
+C166;Zlecenie testowe
+C167;Zbieracz dodatkowych koszt. dla zlec. te
+C180;USA Manual R/3 order (copacker - normal)
+C182;IT Manual R/3 order (copacker - normal)
+CA01;Internal Orders Product Canada
+CA02;Internal Orders Marketing Canada
+CA03;Internal Orders Trade Canada
+CA04;Internal Orders Other Costs Canada
+CA07;Internal Orders Marketing Canada
+CA10;Internal Orders Investment Canada
+CA20;Internal Order Statistical Canada
+CA50;Internal Order Copacking Ferrero France
+CA60;Zlec. ręczne R/3 (konf. - norm.)
+CA61;Norm. produkcja z APO
+CA62;Konfekcja z APO
+CA65;Zlec. ręczne R/3 (konf. - norm.)
+CA66;Zlecenie testowe
+CA67;Zbieracz dodatkowych koszt. dla zlec. te
+CA69;Zmiana kodu zlecenia Z BOM
+CA70;Zmiana kodu zlecenia Z BOM
+CAM1;WO - Corrective Maintenance
+CAM2;WO - Preventive Maintenance (Scheduled)
+CAM3;WO - Preventive Mainten. (Conditional)
+CAM4;WO - Improvement Maintenance
+CAM5;WO - Shut Down Maintenance
+CAM6;WO - Corrective Maintenance (Postponed)
+CAM7;WO - Operational Assis.during production
+CAM8;WO - Operational Assis during no product
+CAM9;WO - Unpredictable Cost
+CAMA;WO - Others cost
+CAMB;WO - New Investments (Commessa)
+CAMF;WO - Building works
+CAMK;WO - non - Depreciable
+CH01;Internal Orders Product Schweiz
+CH02;Internal Orders Marketing Schweiz
+CH03;Internal Orders Trade Schweiz
+CH04;Internal Order Other Costs Schweiz
+CH10;
+CH20;Internal Order Statistical Schweiz
+CH21;Internal Order Statistical C&D Schweiz
+CL60;USA Manual R/3 order (copacker - normal)
+CL61;USA Normal production from APO
+CN01;
+CN02;
+CN03;
+CN04;Internal Orders Other costs China
+CN07;
+CN10;
+CN20;
+CN21;Internal Order Statistical C&D China
+CN60;USA Manual R/3 order (copacker - normal)
+CN61;Norm. produkcja z APO
+CN62;Konfekcja z APO
+CN66;Zlecenie testowe
+CN67;Zbieracz dodatkowych koszt. dla zlec. te
+CN82;IT Manual R/3 order (copacker - normal)
+CNM1;WO - Corrective Maintenance
+CNM2;WO - Preventive Maintenance Scheduled
+CNM3;WO - Preventive Maintenance Conditional
+CNM4;WO - Improvement Maintenance
+CNM5;WO - Shut Down Maintenance
+CNM6;WO - Corrective Maintenance Postponed
+CNM7;WO - Operational Assis.during production
+CNM8;WO - Operational Assis during no product
+CNM9;WO - Unpredictable Cost
+CNMA;WO - Others Cost
+CNMB;WO - New Investments (Commessa)
+CNMF;WO - Building Works
+CNMK;WO - Non-depreciable assets
+CO21;Internal Order Statistical C&D Colombia
+CZ01;Internal Orders Product Ceska
+CZ02;Internal Orders Marketing Ceska
+CZ03;Internal Orders Trade Ceska
+CZ04;Internal Orders Other Costs  Ceska
+CZ10;Internal Orders Investment Ceska
+CZ20;Internal Order Statistical Ceska
+CZ21;Internal Order Statistical C&D Ceska
+DE60;BE Manual R/3 order (copacker - normal)
+DE61;BE Normal production via APO
+DE62;BE Co-packer production via APO
+DE65;BE Re-packing orders via prod. model
+DE66;IT test order
+DE67;IT test order
+DE69;Zmiana kodu zlecenia Z BOM
+DE70;Zmiana kodu zlecenia Z BOM
+DE75;BE Re-packing orders via prod. model
+DE80;IT test order
+DE81;IT Manual R/3 order (copacker - normal)
+DE82;IT Manual R/3 order (copacker - normal)
+DI01;Internal Orders Product Ceska
+DI02;Internal Orders Marketing Ceska
+DI03;Internal Orders Trade Ceska
+DI10;Internal Orders Investment Indonesia
+E101;Internal Orders Product Portogallo
+E102;Internal Orders Marketing Portogallo
+E103;Internal Orders Trade Portogallo
+E104;Internal Orders Other Costs Portogallo
+E105;
+E107;Internal Orders Marketing Portogallo
+E110;Internal Orders Investment Portogallo
+E120;Internal Order Statistical Portogallo
+E160;IT Manual R/3 order (copacker - normal)
+E162;USA Co-packer production from APO
+EC21;Internal Order Statistical C&D Ecuador
+EC60;EC Manual R/3 orden (copacker - normal)
+EC61;EC produccion normal via APO
+EC62;EC Co-packer production via APO
+EC65;EC Unpack MU commitment
+EC66;Test order
+EC67;Inefficiency collector for test orders
+EC69;Transcoding order with Z BOM
+EC70;EC Repack Factory commitment
+EC75;EC Unpack/Repair BU commitment (out NM)
+EC82;EC Co-packer production via APO
+ECM1;WO - Corrective Maintenance
+ECM2;WO - Preventive Maintenance Scheduled
+ECM3;WO - Preventive Maintenance Conditional
+ECM4;WO - Improvement Maintenance
+ECM5;WO - Shut Down Maintenance
+ECM6;WO - Corrective Maintenance Postponed
+ECM7;WO - Operational Assis.during production
+ECM8;WO - Operational Assis during no product
+ECM9;WO - Unpredictable Cost
+ECMA;WO - Others Cost
+ECMB;WO - New Investments (Commessa)
+ECMF;WO - Building Works
+ES01;Internal Orders Product Iberica
+ES02;Internal Orders Marketing Iberica
+ES03;Internal Orders Trade Iberica
+ES04;Internal Orders Other Costs Iberica
+ES05;
+ES07;Internal Orders Marketing Iberica
+ES10;Internal Orders Investment Iberica
+ES20;Internal Order Statistical Iberica
+ES60;IT Manual R/3 order (copacker - normal)
+ES61;USA Normal production from APO
+ES62;USA Co-packer production from APO
+ES65;BE Re-packing orders via prod. model
+ES66;Zlecenie testowe
+ES67;Zbieracz dodatkowych koszt. dla zlec. te
+ES70;Zmiana kodu zlecenia Z BOM
+ES75;BE Re-packing orders via prod. model
+F101;Internal Orders Product France Comm
+F102;Internal Orders Marketing France Comm
+F103;Internal Orders Trade France Comm
+F104;Internal Orders Other Costs France
+F105;Main Events Francia
+F107;Internal Orders Marketing France Comm
+F110;Internal Orders Investment France
+F150;Copacking Ferrero France Comm.
+FE01;Normal production
+FE02;Co-Packer
+FE03;Test-Production
+FE05;Repackaging
+FE13;Orders created manually
+FE99;Normal production
+FR01;Internal Orders Product France
+FR02;Internal Orders Marketing France
+FR03;Internal Orders Trade France
+FR04;Internal Orders Other Costs France
+FR05;Main Events Francia
+FR10;Internal Orders Investment France
+FR50;Internal Order Copacking Ferrero France
+FR60;FR Manual R/3 order (copacker - normal)
+FR61;FR Normal production via APO
+FR62;FR Co-packer production via APO
+FR65;FR Re-packing orders via prod. model
+FR66;Zlecenie testowe
+FR67;Zbieracz dodatkowych koszt. dla zlec. te
+FR69;Zmiana kodu zlecenia Z BOM
+FR70;Zmiana kodu zlecenia Z BOM
+FRM1;Breakdown emergency
+FRM2;Preventive cycle
+FRM3;Preventive condition
+FRM4;Ameliorative
+FRM5;Revisions
+FRM6;Breakdown deferrable
+FRM7;Operational assistance with production
+FRM8;Operational assistance no production
+FRM9;Extraordinary works
+FRMA;Others cost
+FRMB;Investment order
+FRMF;Building works
+FRMK;Non-depreciable assets
+G102;Internal Orders Marketing Thorntons
+G103;Internal Orders Trade Thorntons
+G104;Other Costs Thorntons
+G107;Internal Orders Marketing Thorntons
+G120;Internal Orders Statistical Thorntons
+G121;Internal Ord. Statistical C&D Thorntons
+G204;Other Costs Strand Court Properties Tho
+GB01;Internal Orders Product UK
+GB02;Internal Orders Marketing UK
+GB03;Internal Orders Trade UK
+GB04;Internal Order Other Costs UK
+GB07;Internal Orders Marketing UK
+GB10;UK Investment Under Construction
+GB20;Internal Orders for Internal Projects UK
+GB60;Zlec. ręczne R/3 (konf. - norm.)
+GB61;Norm. produkcja z APO
+GB62;Konfekcja z APO
+GB65;FR Re-packing orders via prod. model
+GB66;Zlecenie testowe
+GB67;Zbieracz dodatkowych koszt. dla zlec. te
+GB69;Zmiana kodu zlecenia Z BOM
+GBM1;WO - Corrective Maintenance
+GBM2;WO - Preventive Maintenance Scheduled
+GBM4;WO - Improvement Maintenance
+GBM6;WO - Corrective Maintenance Postponed
+GBM7;WO - Operational Assis.during production
+GBMA;WO - Others Cost
+GBMB;WO - New Investments (Commessa)
+GR01;
+GR02;
+GR03;
+GR04;
+GR10;
+GR20;Inte
+GR21;Internal Order Statistical C&D Greece
+GR60;Zlec. ręczne R/3 (konf. - norm.)
+GR62;Konfekcja z APO
+GR65;GR Re/Un-packing orders via prod. model
+HH04;Internal Orders Other costs Australia
+HH10;Internal Order Investment FINT HK
+HH20;Internal Order Statistical Australia
+HK01;Internal Orders Product Australia
+HK02;Internal Orders Marketing Australia
+HK03;Internal Orders Trade Australia
+HK04;Internal Orders Other costs Australia
+HK10;Internal Order Investment Hong Kong
+HK20;Internal Order Statistical Australia
+HK21;Internal Order Statistical C&D Hong Kong
+HR01;Internal Orders Product Croazia
+HR02;Internal Orders Marketing Croazia
+HR03;Internal Orders Trade Croazia
+HR04;Internal Orders Other Costs  Romania
+HR10;Internal Orders Investment Croazia
+HR20;Internal Order Statistical Croazia
+HR21;Internal Order Statistical C&D Croazia
+HU01;Internal Orders Product Ungheria
+HU02;Internal Orders Marketing Ungheria
+HU03;Internal Orders Trade Ungheria
+HU04;Internal Orders Other Costs  Ceska
+HU05;
+HU10;Internal Orders Investment Ungheria
+HU20;Internal Order Statistical Ungheria
+HU21;Internal Order Statistical C&D Ungheria
+I004;Internal Order Other Costs Energhe S.p.A
+I010;Internal Orders Investment Energhe S.p.A
+I104;Internal Order Other Costs Alba Power
+I110;Internal Orders Investment Alba Power
+I201;Internal Orders Product Soremartec ITA
+I202;Internal Orders Trade Soremartec ITA
+I203;Internal Orders Trade Soremartec ITA
+I204;Internal Order Other Costs Schweiz
+I210;Internal Orders Invest Soremartec ITA
+I220;Internal Orders Statist Soremartec ITA
+I504;Internal Order Other Costs P.Ferrero & C
+I604;Internal Orders Other Costs Denmark
+I610;Internal Orders Investment Canada
+I704;Internal Order Other Costs FIS GEIE
+IA04;Internal Orders Other Costs India PVT LT
+IB01;Internal Orders Product India MPG
+IB04;Internal Orders Other Costs  MPG
+IB10;Internal Orders Investment India
+IC04;Internal Orders Other Costs  Ceska
+IE04;Internal Orders Other cost Ireland
+IE10;Internal Orders Investment Ardenne
+IE20;Internal Order Statistical Ardenne
+IE60;Zlec. ręczne R/3 (konf. - norm.)
+IE61;Norm. produkcja z APO
+IE65;FR Re-packing orders via prod. model
+IE66;Zlecenie testowe
+IE67;Zbieracz dodatkowych koszt. dla zlec. te
+IE70;Zmiana kodu zlecenia Z BOM
+IE75;BE Re-packing orders via prod. model
+IEM1;WO - Corrective Maintenance
+IEM2;WO - Preventive Maintenance Scheduled
+IEM3;WO - Preventive Maintenance Conditional
+IEM4;WO - Improvement Maintenance
+IEM5;WO - Shut Down Maintenance
+IEM6;WO - Corrective Maintenance Postponed
+IEM7;WO - Operational Assis.during production
+IEM8;WO - Operational Assis during no product
+IEM9;WO - Unpredictable Cost
+IEMA;WO - Others Cost
+IEMB;WO - New Investments (Commessa)
+IEMF;WO - Building Works
+IG02;Internal Orders Marketing Italy
+IL10;Internal Orders Invest Soremartec ITA
+IM20;Internal Order Statistical Italia
+IN10;Internal Orders Investment India
+IN20;Internal Order Statistical India
+IN21;Internal Order Statistical C&D India
+IN60;Normal production
+IN61;IT normal production via APO
+IN65;IT Re-packing orders via prod. model
+IN66;IT test order
+IN67;IT test order
+IN68;Normal production
+IN69;Zmiana kodu zlecenia Z BOM
+IN82;IT Manual R/3 order (copacker - normal)
+IT01;Internal Orders Product Italy
+IT02;Internal Orders Marketing Italy
+IT03;Internal Orders Trade Italy
+IT04;Internal Orders Other Costs Italy
+IT05;Main Events Italia
+IT10;Internal Orders Investment Italy
+IT20;Internal Order Statistical Italia
+IT30;
+IT60;IT Manual R/3 order (copacker - normal)
+IT61;IT normal production via APO
+IT62;IT Co-packer production via APO
+IT63;BE Manual R/3 order (copacker - normal)
+IT65;IT Re-packing orders via prod. model
+IT66;IT test order
+IT67;IT test order
+IT68;IT Ordini di Test UPS
+IT69;IT for fictitious codes (not activated)
+IT70;Zmiana kodu zlecenia Z BOM
+IT75;BE Re-packing orders via prod. model
+IT79;IT Surprises cleaning
+IT80;IT Manual R/3 order (copacker - normal)
+IT81;IT Manual R/3 order (copacker - normal)
+IT82;IT Manual R/3 order (copacker - normal)
+IT99;IT Manual R/3 order (copacker - normal)
+ITM1;Breakdown emergency
+ITM2;Preventive cycle
+ITM3;Preventive condition
+ITM4;Ameliorative
+ITM5;Revisions
+ITM6;Breakdown deferrable
+ITM7;Operational assistance with production
+ITM8;Operational assistance no production
+ITM9;Extraordinary works
+ITMA;Others cost
+ITMB;Investment order
+ITMF;Building works
+ITMK;Non-depreciable assets
+ITQ1;WO - Corrective Maintenance
+JE02;Internal Orders Marketing Jersey Tho
+JE03;Internal Orders Trade Jersey Tho
+JE20;Internal Orders Statistical Jersey Tho
+JP01;Internal Orders Product Australia
+JP02;Internal Orders Marketing Australia
+JP03;Internal Orders Trade Australia
+JP04;Internal Orders Other costs Australia
+JP07;Internal Orders Marketing Australia
+JP10;Internal Order Investment Japan
+JP20;Internal Order Statistical Australia
+JP21;Internal Order Statistical C&D Japan
+K101;
+K102;
+K103;
+K104;Internal Orders Other costs China
+K110;
+K120;
+K201;
+K202;
+K203;
+K204;Internal Orders Other costs China
+K210;Internal Order Investment Hong Kong
+K220;
+KR01;Internal Orders Product Australia
+KR02;Internal Orders Marketing Australia
+KR03;Internal Orders Trade Australia
+KR04;Internal Orders Other costs Australia
+KR07;Internal Orders Marketing Australia
+KR10;Internal Order Investment Korea
+KR20;Internal Order Statistical Australia
+KR21;Internal Order Statistical C&D Korea
+KZ02;Internal Orders Marketing Thorntons
+KZ03;Internal Orders Trade Thorntons
+KZ04;Internal Order Other Costs Russia
+KZ10;Internal Orders Investment Israel
+KZ20;Internal Orders Statistical Thorntons
+KZ21;Internal Ord. Statistical C&D Thorntons
+L020;Internal Order Statistical International
+L101;Internal Orders Product International
+L104;Internal Order Other Costs International
+L110;Internal Orders Investment International
+L120;Internal Order Statistical International
+L201;Internal Orders Product Trading
+L202;Internal Orders Marketing Trading
+L203;Internal Orders Trade Trading
+L204;Internal Order Other Costs Trading
+L205;Main Events Trading
+L207;Internal Orders Marketing Trading
+L210;Internal Orders Investment Trading
+L220;Internal Order Statistical Trading
+L404;Internal Order Sereco (Insurance Policy)
+L410;Internal Orders Investment Sereco
+L420;Internal Order Statistical Sereco
+L520;Internal Orders Statistical Soremartec
+L610;Internal Orders Investment FSC
+L620;Internal Order Statistical FSC
+L720;Internal Order Statistical Fis Geie Lux
+LA01;Internal Orders Product Soremartec S.A.
+LA02;Internal Orders Product Soremartec S.A.
+LA03;Internal Orders Trade Soremartec S.A.
+LA04;Internal Order Other Costs Schweiz
+LA10;Internal Orders Investment Soremartec
+LA20;Internal Orders Statistical Soremartec
+LL01;Internal Orders Product Australia
+LL02;Internal Orders Marketing Australia
+LL03;Internal Orders Trade Australia
+LL05;Main Events Francia
+LL07;Internal Orders Marketing Australia
+LL10;Internal Orders Investment Israel
+LL20;Internal Orders Statistical Israel
+LU60;BE Manual R/3 order (copacker - normal)
+LU82;Mixed surprise
+M001;Internal Orders Product Soremartec MC20
+M003;Internal Orders Trade Soremartec MC20
+M004;Internal Order Other Costs Schweiz
+M010;Internal Orders Invest Soremartec MC20
+M020;Internal Orders Statist Soremartec MC20
+M210;Internal Orders Investment Sodeser
+M220;Internal Order Statistical Sodeser
+MC01;Internal Orders Product Soremartec MC10
+MC03;Internal Orders Trade Soremartec MC10
+MC04;Internal Order Other Costs Schweiz
+MC10;Internal Orders Invest Soremartec MC10
+MC20;Internal Orders Statist Soremartec MC10
+MX01;Internal Orders Product Ferrero Mexico
+MX02;Internal Orders Marketing Ferrero Mexico
+MX03;Internal Orders Trade Ferrero Mexico
+MX04;Internal Orders Other Costs Ferrero Mexi
+MX07;Internal Orders Marketing Ferrero Mexico
+MX10;Internal Orders Investment Ferrero Mexic
+MX20;Internal Order Statistical Ferrero Mexic
+MX21;Internal Order Statistical C&D Mexic
+MX60;Mx Manual R/3 order (copacker - normal)
+MX61;Mx Normal production via APO
+MX62;Konfekcja z APO
+MX79;Czyszczenie 'Suprise'
+MX82;IT Manual R/3 order (copacker - normal)
+MXM1;WO - Corrective Maintenance
+MXM2;WO - Preventive Maintenance (Scheduled)
+MXM3;WO - Preventive Mainten. (Conditional)
+MXM4;WO - Improvement Maintenance
+MXM5;WO - Shut Down Maintenance
+MXM6;WO - Corrective Maintenance (Postponed)
+MXM7;WO - Operational Assis.during production
+MXM8;WO - Operational Assis during no product
+MXM9;WO - Unpredictable Cost
+MXMA;WO - Others cost
+MXMB;WO - New Investments (Commessa)
+MXMF;WO - Building works
+MXMK;WO - non - Depreciable
+MY01;Internal Orders Product Australia
+MY02;Internal Orders Marketing Australia
+MY03;Internal Orders Trade Australia
+MY04;Internal Orders Other costs Australia
+MY10;Internal Order Investment Malaysia
+MY20;Internal Order Statistical Australia
+MY21;Internal Order Statistical C&D Malaysia
+NL01;Internal Orders Product Ferrero BV
+NL02;Internal Orders Marketing Ferrero BV
+NL03;Internal Orders Trade Ferrero BV
+NL04;Internal Orders Other Costs Ferrero BV
+NL10;Internal Orders Investment Ferrero BV
+NL20;Internal Order Statistical Ferrero BV
+P101;Zamówienia Wewnętrzne Produkty Polska Co
+P102;Zamówienia Wewnętrzne Marketing Polska C
+P103;Zamówienia Wewnętrzne Handel Polska  Com
+P107;Zamówienia Wewnętrzne Marketing Polska C
+P110;Z.W  Polska  Inwest. Budynki w toku Comm
+P120;Internal Order Statistical Polska Comm
+P160;Zlec. ręczne R/3 (konf. - norm.)
+P162;Konfekcja z APO
+P165;Zlec. przepakow. z model.produkc.
+PI01;Zlecenie proces., wew. przydział numer.
+PI02;Zlecenie proces., zewn. przydział numer.
+PI04;"Napełnianie/pakow. ze ""zlec. montażowym"""
+PL01;Zamówienia Wewnętrzne Produkty Polska
+PL02;Zamówienia Wewnętrzne Marketing Polska
+PL03;Zamówienia Wewnętrzne Handel Polska
+PL04;Internal Order Other Costs Polska
+PL10;Z.W  Polska  Inwest. Budynki w toku
+PL20;Internal Order Statistical Polska
+PL60;Zlec. ręczne R/3 (konf. - norm.)
+PL61;Norm. produkcja z APO
+PL62;Konfekcja z APO
+PL65;Zlec. przepakow. z model.produkc.
+PL66;Zlecenie testowe
+PL67;Zbieracz dodatkowych koszt. dla zlec. te
+PL69;Zmiana kodu zlecenia Z BOM
+PL79;Czyszczenie 'Suprise'
+PL82;Wstęp.miesz. (figur.cave. / KGS)
+PLM1;WO - Konserwacje naprawcze
+PLM2;WO - Konserwacje prewencyjne (planowane)
+PLM3;WO - Prewencje warunkowe
+PLM4;WO - Modyfikacje usprawniające
+PLM5;WO - Konserwacje na zatrzymanych maszyna
+PLM6;WO - Konserwacje naprawcze (przełożone n
+PLM7;WO - Asysta podczas produkcji
+PLM8;WO - Asysta na maszynie bez produkcji
+PLM9;WO - Nieprzewidywalne koszty
+PLMA;WO - Inne koszty
+PLMB;WO - Nowe inwestycje (projekty)
+PLMF;WO - Prace budowlane
+PLMK;WO - Brak amortyzacji
+PM01;Zlecenie PM
+PM02;Zlecenie obsługi
+PM03;Zawiadomienie i zlecenie remontowe
+PM04;Zlecenie regeneracji
+PM05;Zlecenie kalibrowania
+PM06;Zlecenie inwestycyjne
+PP01;Standardowe zlecenie produkcyjne
+PR01;Internal Orders Product Ferrero Caribe
+PR02;Internal Orders Marketing Ferrero Caribe
+PR03;Internal Orders Trade Ferrero Caribe
+PR04;Internal Orders Other Costs FerreroCarib
+PR05;Main Events Portorico
+PR10;Internal Orders Investment Ferrero Carib
+PR20;Internal Order Statistical Ferrero Carib
+PR60;BE Manual R/3 order (copacker - normal)
+PR61;BE Normal production via APO
+PT60;IT Manual R/3 order (copacker - normal)
+PT62;USA Co-packer production from APO
+QL01;Koszty kontroli - rozlicz. zbiorcze
+QL02;Koszty kontroli - rozliczenie pojedyncze
+QM01;QM: Instrukcja pobrania próby
+QM02;QM: Instrukcja kontroli
+QM03;QM: Etykieta próby
+RO01;Internal Orders Product Romania
+RO02;Internal Orders Marketing Romania
+RO03;Internal Orders Trade Romania
+RO04;Internal Orders Other Costs  Romania
+RO10;Internal Orders Investment Romania
+RO20;Internal Order Statistical Romania
+RO21;Internal Order Statistical C&D Romania
+RS60;USA Manual R/3 order (copacker - normal)
+RS61;USA Normal production from APO
+RS71;USA Manual R/3 order (copacker - normal)
+RU01;Internal Orders Product Russia
+RU02;Internal Orders Marketing Russia
+RU03;Internal Orders Trade Russia
+RU04;Internal Order Other Costs Russia
+RU05;Main Events Russia
+RU07;Internal Orders Marketing Russia
+RU10;Internal Orders Investment Russia
+RU20;Internal Order Statistical Russia
+RU21;Internal Order Statistical C&D Russia
+RU25;Investment Internal Order Stat. Russia
+RU60;USA Manual R/3 order (copacker - normal)
+RU61;USA Normal production from APO
+RU69;Zmiana kodu zlecenia Z BOM
+RUM1;Breakdown emergency
+RUM2;Preventive cycle maintenance
+RUM3;Preventive condition maintenance
+RUM4;Ameliorative condition maintenance
+RUM5;Revisions maintenance
+RUM6;Breakdown deferrable maintenance
+RUM7;Operational assistance with production
+RUM8;Operational assistance no production
+RUM9;Extraordinary works
+RUMA;Other costs
+RUMB;Investment order
+RUMF;Building works
+RUMK;Non-depreciable assets
+S101;Internal Orders Product DENMARK
+S102;Internal Orders Marketing DENMARK
+S103;Internal Orders Trade  DENMARK
+S104;Internal Orders Other Costs Canada
+S110;Internal Orders Investment Canada
+S120;Internal Order Statistical Canada
+S201;Internal Orders Product Norway
+S202;Internal Orders Marketing Norway
+S203;Internal Orders Trade Norway
+S204;Internal Orders Other Costs Denmark
+S210;Internal Orders Investment Denmark
+S220;Internal Order Statistical Denmark
+S301;Internal Orders Product Finland
+S302;Internal Orders Marketing Finland
+S303;Internal Orders Trade Finland
+S304;Internal Orders Other Costs Denmark
+S310;Internal Orders Investment Denmark
+S320;Internal Order Statistical Denmark
+S921;Internal Order Statistical C&D Singapore
+S960;SG Manual R/3 order (copacker) FAP
+S962;SG Co-packer production via APO FAP
+SD01;Harmonogram wysyłki
+SE01;Internal Orders Product SWEDEN
+SE02;Internal Orders Marketing SWEDEN
+SE03;Internal Orders Trade  SWEDEN
+SE04;Internal Orders Other Costs Canada
+SE07;Internal Orders Marketing Sweden
+SE10;Internal Orders Investment Canada
+SE20;Internal Order Statistical Canada
+SG01;Internal Orders Product Australia
+SG02;Internal Orders Marketing Australia
+SG03;Internal Orders Trade Australia
+SG04;Internal Orders Other costs Australia
+SG10;Internal Order Investment Singapore
+SG20;Internal Order Statistical Australia
+SK01;Internal Orders Product Slovakia
+SK02;Internal Orders Marketing Slovakia
+SK03;Internal Orders Trade Slovakia
+SK04;Internal Orders Other Costs  Slovakia
+SK10;Internal Orders Investment Slovakia
+SK20;Internal Order Statistical Slovakia
+T104;Internal Orders Other Costs Findik
+T110;Internal Orders Investment Findik
+T120;Internal Order Statistical Findik
+T150;Internal Order Copacking Ferrero Findik
+T151;Internal Order Copacking Ferrero Findik
+THM1;Breakdown emergency
+THM2;WO - Preventive Maintenance Scheduled
+THM4;WO - Improvement Maintenance
+THMA;WO - Others Cost
+TR01;
+TR02;
+TR03;
+TR04;
+TR07;
+TR10;
+TR20;Inte
+TR21;Internal Order Statistical Turkey
+TR60;USA Manual R/3 order (copacker - normal)
+TR61;USA Normal production from APO
+TR62;IT Co-packer production via APO
+TR64;IT Ordini di Test UPS
+TR65;AU Zlec. przepakow. z model.produkc.
+TR68;IT Ordini di Test UPS
+TRM1;WO-Corrective Maintenance
+TRM2;WO-Preventive Maintenance (scheduled)
+TRM3;WO-Preventative Mainten (Conditional)
+TRM4;WO-Improvement Maintenance
+TRM5;WO-Shut Down Maintenance
+TRM6;WO-Corrective Maintenance (Postponed)
+TRM7;WO-Operational Assis during prod. time
+TRM8;WO-Operational Ass during no prod time
+TRM9;WO-Unpredictable Cost
+TRMA;WO-Others cost
+TRMB;WO-New Investments (Commesse)
+TRMF;WO-Building works
+TRMK;WO-Non - Depreciable
+TW01;Internal Orders Product Australia
+TW02;Internal Orders Marketing Australia
+TW03;Internal Orders Trade Australia
+TW04;Internal Orders Other costs Australia
+TW10;Internal Order Investment Taiwan
+TW20;Internal Order Statistical Australia
+TW21;Internal Order Statistical C&D Taiwan
+U104;Other Cost SalesCo
+U120;Internal Order Statistical SalesCo
+U302;Internal Orders Marketing USA
+U304;Internal Order Other Costs USA
+U310;Internal Orders Investment USA
+U320;Internal Order Statistical USA
+U321;Internal Ord. Statistical C&D Thorntons
+UA02;Internal Orders Marketing Thorntons
+UA03;Internal Orders Trade Thorntons
+UA04;Internal Order Other Costs Russia
+UA10;Internal Orders Investment Israel
+UA20;Internal Orders Statistical Thorntons
+UA21;Internal Ord. Statistical C&D Thorntons
+US01;Internal Orders Product USA
+US02;Internal Orders Marketing USA
+US03;Internal Orders Trade USA
+US04;Internal Order Other Costs USA
+US07;Internal Orders Marketing USA
+US10;Internal Orders Investment USA
+US20;Internal Order Statistical USA
+US60;USA Manual R/3 order (copacker - normal)
+US61;USA Normal production from APO
+US62;USA Co-packer production from APO
+US65;IT Re-packing orders via prod. model
+US66;Zlecenie testowe
+US67;Zbieracz dodatkowych koszt. dla zlec. te
+US70;Zmiana kodu zlecenia Z BOM
+US75;BE Re-packing orders via prod. model
+USM1;WO - Corrective Maintenance
+USM2;WO - Preventive Maintenance Scheduled
+USM4;WO - Improvement Maintenance
+USM6;WO - Corrective Maintenance Postponed
+USM7;WO - Operational Assis.during production
+USMA;WO - Others Cost
+USMB;WO - New Investments (Commessa)
+XIP1;WO - Corrective Maintenance
+Z101;Internal Orders Product Ithemba
+Z102;Internal Orders Marketing Ithemba
+Z103;Internal Orders Trade Ithemba
+Z110;Internal Orders Investment Ithemba
+Z120;Internal Order Statistical Ithemba
+ZA10;Internal Orders Investment Imsofer S.A.
+ZA20;Internal Order Statistical Imsofer S.A.
+ZA21;Internal Order Statistical Imsofer S.A.
+ZA60;Orders created direcly in R3
+ZA61;IT normal production via APO
+ZA65;IT Re-packing orders via prod. model
+ZA66;IT test order
+ZA67;IT test order
+ZA68;IT Ordini di Test UPS
+ZA69;Zmiana kodu zlecenia Z BOM

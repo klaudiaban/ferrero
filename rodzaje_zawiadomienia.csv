@@ -1,0 +1,171 @@
+﻿Rdz.;Rodzaj zawiadomienia
+$$;Zwiadomienie R/3
+1;ISR pow.powst.koszt.
+2;ISR ogólnie
+1A;Zgłoszenie awarii
+1B;Zgłoszenie awarii
+1C;Zgłoszenie awarii
+1D;Zgłoszenie awarii
+1E;Zgłoszenie awarii
+1F;Zgłoszenie awarii
+1G;Zgłoszenie awarii
+1H;Zgłoszenie awarii
+1I;Zgłoszenie awarii
+1K;Zgłoszenie awarii
+1M;Zgłoszenie awarii
+1N;Zgłoszenie awarii
+1P;Zgłoszenie awarii
+1Q;Zgłoszenie awarii
+1R;Zgłoszenie awarii
+1T;Zgłoszenie awarii
+1U;Zgłoszenie awarii
+1X;Zgłoszenie awarii
+1Z;Zgłoszenie awarii
+50;Zmiana dan.podst.ISR
+52;RozchódAktTrw ISR
+54;Zawiadomienie zmiany
+56;PCR z zezwoleniem
+57;PCR bez zezwolenia
+58;RQ z zatwierdz.
+59;RQ bez zatwierdz.
+5A;RC z zezwoleniem
+5B;RC bez zezwolenia
+60;ISR: Księgow. korek.
+61;ISR: Budżetowanie
+62;ISR: Budżet z zezw.
+70;ISR AP/AR
+71;ISR - nowy użytkow.
+AM;Corrective Mainten.
+AP;Operational Assist.
+AQ;Improvement Mainten.
+AS;Maintenance Request
+AT;Preventive Mainten.
+BM;Zgłoszenie awarii
+BP;Żądanie obsługi
+BQ;Żądanie obsługi
+BS;Maintenance Request
+BT;Żądanie obsługi
+C1;Reklamacja wewn.
+C2;Reklamacja zewn.
+CM;Corrective mainten.
+CP;Operational assist.
+CQ;Improvement mainten.
+CT;Preventive maint.
+DM;Corrective Mainten.
+DP;Operational Assist.
+DQ;Improvement Mainten.
+DS;Maintenance Request
+DT;Preventive Mainten.
+EM;Corrective Mainten.
+EP;Operational Assist.
+EQ;Improvement Mainten.
+ES;Maintenance Request
+ET;Preventive Mainten.
+F1;Błąd - klient
+F2;Błąd - dostawca
+F3;Błąd - materiał
+FM;Zgłoszenie awarii
+FP;Żądanie obsługi
+FQ;Żądanie obsługi
+FS;Żądanie obsługi
+FT;Żądanie obsługi
+G0;Zawiadomienie
+GP;Żądanie obsługi
+GQ;Żądanie obsługi
+GT;Żądanie obsługi
+HP;Żądanie obsługi
+HQ;Żądanie obsługi
+HT;Żądanie obsługi
+I1;Zawiadom. o nieruch.
+IE;Zgłoszenie awarii
+IM;Zgłoszenie awarii
+IP;Żądanie obsługi
+IQ;Żądanie obsługi
+IS;Żądanie obsługi
+IT;Żądanie obsługi
+KM;Corrective Mainten.
+KP;Operational Assist.
+KQ;Improvement Mainten.
+KT;Preventive Mainten.
+M1;Żądanie obsługi
+M2;Zgłoszenie awarii
+M3;Raport działań
+MM;Zgłoszenie awarii
+MP;Żądanie obsługi
+MQ;Żądanie obsługi
+MS;Maintenance Request
+MT;Żądanie obsługi
+NM;Zgłoszenie awarii
+NP;Żądanie obsługi
+NQ;Żądanie obsługi
+NS;
+NT;
+PC;PCR Test
+PM;Breakdown
+PP;Asysta produkcji
+PQ;Usprawnienie
+PS;Operational assistan
+PT;Preventive
+Q1;Reklamacja klienta
+Q2;Reklamacja do dost.
+Q3;Problem wewnętrzny
+QR;Anal. stab. bez mat.
+QS;Anal. stab. z mater.
+RM;Corrective maint.
+RP;Operational assist.
+RQ;Improvement maint.
+RT;Preventive maint.
+S1;Zawiad. o awarii
+S2;Raport działań
+S3;Żądanie serwisowe
+SN;Problem wewnętrzny
+TM;Corrective Maintenan
+TP;Operational Assist.
+TQ;Improvement Maintena
+TS;Notif.for Maint. Req
+TT;Preventive Mainten.
+UM;Corrective Mainten.
+UP;Operational Assist.
+UQ;Improvement Mainten.
+US;Maintenance Request
+UT;Preventive Mainten.
+V1;Propozycje
+XM;Corrective Mainten.
+XP;Operational Assist.
+XQ;Improvement Mainten.
+XS;Anal. stab. z mater.
+XT;Preventive Mainten.
+YC;Upcycle&Disposal (G)
+YD;Upcycle&Disposal (L)
+YE;Upcycle&Disposal(FG)
+YF;Upcycle&Disposal(FL)
+YS;Maintenance Request
+Z0;Maintenance Request
+Z1;Żądanie obsługi
+Z2;Reklamacja do dost.
+Z3;Żądanie obsługi
+Z4;Customer complaint
+Z5;Cust. compl. daugth.
+ZA;Non compliant Arlon
+ZB;Deviation Permits
+ZC;DP Daughters
+ZD;Problem wewnętrzny
+ZE;Derogation FFT
+ZF;NC półprod./gotow
+ZG;Logistic NC IN&OUT
+ZH;Log NC IN&OUT Daugt.
+ZI;Reklamacja do dost.
+ZJ;Non Compliance
+ZK;Non Compl. daugthers
+ZL;Reklamacja do dost.
+ZM;Zgłoszenie awarii
+ZN;Derogation DNSP
+ZO;Non Compliance
+ZP;Żądanie obsługi
+ZQ;Żądanie obsługi
+ZR;NC сырье
+ZS;NC Niespodzianka
+ZT;Żądanie obsługi
+ZV;NC Pakowanie
+ZW;Żądanie obsługi
+ZY;TimeLimit Derogation
