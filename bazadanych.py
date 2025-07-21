@@ -3,6 +3,7 @@ import pandas as pd
 import pyodbc
 import os
 from datetime import datetime
+import re
 
 FILE_PATTERNS = {
     "zlecenia": {
@@ -180,7 +181,7 @@ FILE_PATTERNS = {
             "Rodzina": "Rodzina",
             "QLTotalAkt": "QLTotalAkt",
             "QLTotalPln": "QLTotalPln",
-            "ProcentDvtProduk": "ProcentDvtProduk",
+            "%DvtProduk": "ProcentDvtProduk",
             "ZmianaCzysty": "ZmianaCzysty",
             "ZmianaPrg": "ZmianaPrg",
             "ZmianaStd": "ZmianaStd",
@@ -199,24 +200,24 @@ FILE_PATTERNS = {
             "GQLAkt": "GQLAkt",
             "GQLDocel": "GQLDocel",
             "GQLStd": "GQLStd",
-            "ProcentSCEff": "ProcentSCEff",
-            "ProcentSCStd": "ProcentSCStd",
-            "ProcentSREff": "ProcentSREff",
-            "ProcentSRStd": "ProcentSRStd",
-            "ProcentSFSPEff": "ProcentSFSPEff",
-            "ProcentSFSPStd": "ProcentSFSPStd",
+            "%SCEff": "ProcentSCEff",
+            "%SCStd": "ProcentSCStd",
+            "%SREff": "ProcentSREff",
+            "%SRStd": "ProcentSRStd",
+            "%SFSPEff": "ProcentSFSPEff",
+            "%SFSPStd": "ProcentSFSPStd",
             "GodzPracAkt": "GodzPracAkt",
             "GodzPracDocel": "GodzPracDocel",
             "GodzPracStd": "GodzPracStd",
-            "ProcentELiniaEff": "ProcentELiniaEff",
-            "ProcentELiniaObb": "ProcentELiniaObb",
-            "ProcentELiniaStd": "ProcentELiniaStd",
-            "ProcentEPracEff": "ProcentEPracEff",
-            "ProcentEPracObb": "ProcentEPracObb",
-            "ProcentEPracStd": "ProcentEPracStd",
-            "ProcentZyskuEff": "ProcentZyskuEff",
-            "ProcentZyskuObb": "ProcentZyskuObb",
-            "ProcentZyskuStd": "ProcentZyskuStd"
+            "%ELiniaEff": "ProcentELiniaEff",
+            "%ELiniaObb": "ProcentELiniaObb",
+            "%ELiniaStd": "ProcentELiniaStd",
+            "%EPracEff": "ProcentEPracEff",
+            "%EPracObb": "ProcentEPracObb",
+            "%EPracStd": "ProcentEPracStd",
+            "%ZyskuEff": "ProcentZyskuEff",
+            "%ZyskuObb": "ProcentZyskuObb",
+            "%ZyskuStd": "ProcentZyskuStd"
         },
         "target_table": "BilansProdukcji",
         "columns": [
@@ -304,7 +305,6 @@ def read_od_do(file_path: Path):
     with open(file_path, encoding="utf-8") as f:
         first_line = f.readline()
 
-    import re
     od_match = re.search(r"Od\s+(\d{2}\.\d{2}\.\d{4})", first_line)
     do_match = re.search(r"Do\s+(\d{2}\.\d{2}\.\d{4})", first_line)
 
@@ -345,7 +345,7 @@ def process_csv(file_path: Path, settings: dict, conn):
         od_date, do_date = read_od_do(file_path)
         df["Od"] = od_date
         df["Do"] = do_date
-
+        df.rename(columns=settings["column_map"], inplace=True)
     else:
         df.rename(columns=settings["column_map"], inplace=True)
         df = df[settings["columns"]]
