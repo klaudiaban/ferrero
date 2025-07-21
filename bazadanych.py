@@ -74,30 +74,30 @@ FILE_PATTERNS = {
     "linie": {
         "folder": "lokalizacja_funkcjonalna",
         "column_map": {
-            "Lokaliz. funkc.": "Linia",
+            "Lokaliz. funkc.": "LiniaId",
             "Oznaczenie": "LiniaNazwa"
         },
         "target_table": "Linie",
-        "columns": ["Linia", "LiniaNazwa"],
+        "columns": ["LiniaId", "LiniaNazwa"],
         "dtypes": {
-            "Linia": "str",
+            "LiniaId": "str",
             "LiniaNazwa": "str"
         },
-        "primary_key": "Linia"
+        "primary_key": "LiniaId"
     },
     "lokalizacja_funkcjonalna": {
         "folder": "lokalizacja_funkcjonalna",
         "column_map": {
             "Lokaliz. funkc.": "LokalizacjaFunkcjonalnaId",
             "Oznaczenie": "LokalizacjaFunkcjonalnaNazwa",
-            "Linia": "Linia"
+            "LiniaId": "LiniaId"
         },
         "target_table": "LokalizacjaFunkcjonalna",
-        "columns": ["LokalizacjaFunkcjonalnaId", "LokalizacjaFunkcjonalnaNazwa", "Linia"],
+        "columns": ["LokalizacjaFunkcjonalnaId", "LokalizacjaFunkcjonalnaNazwa", "LiniaId"],
         "dtypes": {
             "LokalizacjaFunkcjonalnaId": "str",
             "LokalizacjaFunkcjonalnaNazwa": "str",
-            "Linia": "str"
+            "LiniaId": "str"
         },
         "primary_key": "LokalizacjaFunkcjonalnaId"
     },
@@ -176,7 +176,7 @@ FILE_PATTERNS = {
         "column_map": {
             "Od": "Od",
             "Do": "Do",
-            "Linia": "Linia",
+            "Linia": "LiniaId",
             "Rodzina": "Rodzina",
             "QLTotalAkt": "QLTotalAkt",
             "QLTotalPln": "QLTotalPln",
@@ -220,7 +220,7 @@ FILE_PATTERNS = {
         },
         "target_table": "BilansProdukcji",
         "columns": [
-            "Od", "Do", "Linia", "Rodzina", "QLTotalAkt", "QLTotalPln", "ProcentDvtProduk",
+            "Od", "Do", "LiniaId", "Rodzina", "QLTotalAkt", "QLTotalPln", "ProcentDvtProduk",
             "ZmianaCzysty", "ZmianaPrg", "ZmianaStd", "QZmianaAkt", "QZmianaDocel", "QZmianaStd",
             "QCPKAkt", "QCPKDocel", "QCPKStd", "OpeLNShAkt", "OpeLNShDocel", "OpeLNShStd",
             "OpeELShAkt", "OpeELShDocel", "OpeELShStd", "GQLAkt", "GQLDocel", "GQLStd",
@@ -233,7 +233,7 @@ FILE_PATTERNS = {
         "dtypes": {
             "Od": "date",
             "Do": "date",
-            "Linia": "int",
+            "LiniaId": "int",
             "Rodzina": "int",
             "QLTotalAkt": "float",
             "QLTotalPln": "float",
@@ -289,11 +289,10 @@ CONN_STR = (
     "PWD="
 )
 
-def extract_linia_from_lokalizacja(code: str) -> str:
-    if isinstance(code, str):
-        parts = code.split("-")
-        if len(parts) >= 5:
-            return "-".join(parts[:-1])
+def extract_linia_from_lokalizacja(lok: str) -> str | None:
+    parts = lok.split("-")
+    if len(parts) == 5:
+        return parts[-2]
     return None
 
 def remove_duplicates_by_primary_key(df: pd.DataFrame, primary_key: str) -> pd.DataFrame:
@@ -305,14 +304,17 @@ def process_csv(file_path: Path, settings: dict, conn):
     df = pd.read_csv(file_path, dtype=str)
     df.rename(columns=settings["column_map"], inplace=True)
 
-    if settings["target_table"] == "Linie":
-        df["Linia"] = df["Lokaliz. funkc."].apply(extract_linia_from_lokalizacja)
-        df = df[df["Linia"].notna()]
-        df = df[["Linia"]].drop_duplicates()
-        df["LiniaNazwa"] = "Brak danych"
-    elif settings["target_table"] == "LokalizacjaFunkcjonalna":
+    if settings["target_table"] == "LokalizacjaFunkcjonalna":
         df = df[df["LokalizacjaFunkcjonalnaId"].str.count("-") >= 4].copy()
-        df["Linia"] = df["LokalizacjaFunkcjonalnaId"].apply(extract_linia_from_lokalizacja)
+        df["LiniaId"] = df["LokalizacjaFunkcjonalnaId"].apply(extract_linia_from_lokalizacja)
+
+    elif settings["target_table"] == "Linie":
+        df["LiniaId"] = df["LokalizacjaFunkcjonalnaId"].apply(extract_linia_from_lokalizacja)
+        df = df[df["LiniaId"].notna()]
+        
+        df = df.groupby("LiniaId", as_index=False)["Nazwa"].first()
+        df = df.rename(columns={"Nazwa": "LiniaNazwa"})
+
     else:
         df = df[settings["columns"]]
 

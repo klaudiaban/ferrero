@@ -27,7 +27,7 @@ CREATE TABLE [Zawiadomienia] (
 GO
 
 CREATE TABLE [Linie] (
-  [Linia] varchar(20) PRIMARY KEY,
+  [LiniaId] varchar(20) PRIMARY KEY,
   [LiniaNazwa] varchar(50)
 )
 GO
@@ -35,7 +35,7 @@ GO
 CREATE TABLE [LokalizacjaFunkcjonalna] (
   [LokalizacjaFunkcjonalnaId] varchar(20) PRIMARY KEY,
   [LokalizacjaFunkcjonalnaNazwa] varchar(50),
-  [Linia] varchar(20)
+  [LiniaId] varchar(20)
 )
 GO
 
@@ -84,7 +84,7 @@ GO
 CREATE TABLE [BilansProdukcji] (
   [Od] date,
   [Do] date,
-  [Linia] int,
+  [LiniaId] int,
   [Rodzina] int,
   [QLTotalAkt] float,
   [QLTotalPln] float,
@@ -152,10 +152,10 @@ GO
 ALTER TABLE [Zawiadomienia] ADD FOREIGN KEY ([LokalizacjaFunkcjonalnaId]) REFERENCES [LokalizacjaFunkcjonalna] ([LokalizacjaFunkcjonalnaId])
 GO
 
-ALTER TABLE [LokalizacjaFunkcjonalna] ADD FOREIGN KEY ([Linia]) REFERENCES [Linie] ([Linia])
+ALTER TABLE [LokalizacjaFunkcjonalna] ADD FOREIGN KEY ([LiniaId]) REFERENCES [Linie] ([LiniaId])
 GO
 
-ALTER TABLE [BilansProdukcji] ADD FOREIGN KEY ([Linia]) REFERENCES [Linie] ([Linia])
+ALTER TABLE [BilansProdukcji] ADD FOREIGN KEY ([LiniaId]) REFERENCES [Linie] ([LiniaId])
 GO
 
 ALTER TABLE [BilansProdukcji] ADD FOREIGN KEY ([Od]) REFERENCES [Data] ([Data])
