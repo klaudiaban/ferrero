@@ -85,7 +85,7 @@ CREATE TABLE [BilansProdukcji] (
   [Od] date,
   [Do] date,
   [LiniaId] int,
-  [Rodzina] int,
+  [Rodzina] varchar(20),
   [QLTotalAkt] float,
   [QLTotalPln] float,
   [ProcentDvtProduk] float,

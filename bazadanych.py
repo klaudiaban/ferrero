@@ -234,7 +234,7 @@ FILE_PATTERNS = {
             "Od": "date",
             "Do": "date",
             "LiniaId": "int",
-            "Rodzina": "int",
+            "Rodzina": "str",
             "QLTotalAkt": "float",
             "QLTotalPln": "float",
             "ProcentDvtProduk": "float",
@@ -300,22 +300,54 @@ def remove_duplicates_by_primary_key(df: pd.DataFrame, primary_key: str) -> pd.D
         return df.drop_duplicates(subset=primary_key)
     return df
 
+def read_od_do(file_path: Path):
+    with open(file_path, encoding="utf-8") as f:
+        first_line = f.readline()
+
+    import re
+    od_match = re.search(r"Od\s+(\d{2}\.\d{2}\.\d{4})", first_line)
+    do_match = re.search(r"Do\s+(\d{2}\.\d{2}\.\d{4})", first_line)
+
+    od_date = pd.to_datetime(od_match.group(1), dayfirst=True).date() if od_match else None
+    do_date = pd.to_datetime(do_match.group(1), dayfirst=True).date() if do_match else None
+
+    return od_date, do_date
+
 def process_csv(file_path: Path, settings: dict, conn):
     df = pd.read_csv(file_path, dtype=str)
-    df.rename(columns=settings["column_map"], inplace=True)
 
     if settings["target_table"] == "LokalizacjaFunkcjonalna":
+        df.rename(columns=settings["column_map"], inplace=True)
         df = df[df["LokalizacjaFunkcjonalnaId"].str.count("-") >= 4].copy()
         df["LiniaId"] = df["LokalizacjaFunkcjonalnaId"].apply(extract_linia_from_lokalizacja)
 
     elif settings["target_table"] == "Linie":
+        df.rename(columns=settings["column_map"], inplace=True)
         df["LiniaId"] = df["LokalizacjaFunkcjonalnaId"].apply(extract_linia_from_lokalizacja)
         df = df[df["LiniaId"].notna()]
         
         df = df.groupby("LiniaId", as_index=False)["Nazwa"].first()
         df = df.rename(columns={"Nazwa": "LiniaNazwa"})
 
+    elif settings["target_table"] == "BilansProdukcji":
+        header_row_1 = df.iloc[2].fillna("").astype(str).str.strip()
+        header_row_2 = df.iloc[3].fillna("").astype(str).str.strip()
+        combined_headers = [
+            (a + " " + b).strip().replace(".", "").replace("/", "").replace(" ", "")
+            for a, b in zip(header_row_1, header_row_2)
+        ]
+
+        df = df.iloc[5:].copy()
+        df.columns = combined_headers
+        df.dropna(how="all", inplace=True)
+        df.reset_index(drop=True, inplace=True)
+
+        od_date, do_date = read_od_do(file_path)
+        df["Od"] = od_date
+        df["Do"] = do_date
+
     else:
+        df.rename(columns=settings["column_map"], inplace=True)
         df = df[settings["columns"]]
 
     for col, dtype in settings["dtypes"].items():
