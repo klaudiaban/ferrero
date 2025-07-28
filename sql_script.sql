@@ -14,8 +14,8 @@ CREATE TABLE [Zawiadomienia] (
   [LokalizacjaFunkcjonalnaId] varchar(20),
   [UrzadzenieId] int,
   [DataUtworzenia] date,
-  [UszkodzenieId] tinyint,
-  [PrzyczynaId] tinyint,
+  [UszkodzenieId] int,
+  [PrzyczynaId] int,
   [DataPoczatkuZaklocenia] date,
   [DataKoncaZaklocenia] date,
   [CzasPoczatkuZaklocenia] time,
@@ -27,7 +27,7 @@ CREATE TABLE [Zawiadomienia] (
 GO
 
 CREATE TABLE [Linie] (
-  [LiniaId] varchar(20) PRIMARY KEY,
+  [LiniaId] int PRIMARY KEY,
   [LiniaNazwa] varchar(50)
 )
 GO
@@ -35,7 +35,7 @@ GO
 CREATE TABLE [LokalizacjaFunkcjonalna] (
   [LokalizacjaFunkcjonalnaId] varchar(20) PRIMARY KEY,
   [LokalizacjaFunkcjonalnaNazwa] varchar(50),
-  [LiniaId] varchar(20)
+  [LiniaId] int
 )
 GO
 
@@ -58,7 +58,7 @@ CREATE TABLE [Urzadzenia] (
 GO
 
 CREATE TABLE [RodzajeZawiadomienia] (
-  [ZawiadomienieRodzaj] nvarchar(255) PRIMARY KEY,
+  [ZawiadomienieRodzaj] varchar(10) PRIMARY KEY,
   [ZawiadomienieRodzajNazwa] varchar(50)
 )
 GO
@@ -84,17 +84,17 @@ GO
 CREATE TABLE [BilansProdukcji] (
   [Od] date,
   [Do] date,
-  [LiniaId] int,
+  [Linia] int,
   [Rodzina] varchar(20),
-  [QLTotalAkt] float,
-  [QLTotalPln] float,
+  [QLTOTAkt] float,
+  [QLTOTPln] float,
   [ProcentDvtProduk] float,
   [ZmianaCzysty] float,
   [ZmianaPrg] float,
   [ZmianaStd] float,
-  [QZmianaAkt] float,
-  [QZmianaDocel] float,
-  [QZmianaStd] float,
+  [QZmAkt] float,
+  [QZmDocel] float,
+  [QZmStd] float,
   [QCPKAkt] float,
   [QCPKDocel] float,
   [QCPKStd] float,
@@ -116,9 +116,9 @@ CREATE TABLE [BilansProdukcji] (
   [GodzPracAkt] float,
   [GodzPracDocel] float,
   [GodzPracStd] float,
-  [ProcentELiniaEff] float,
-  [ProcentELiniaObb] float,
-  [ProcentELiniaStd] float,
+  [ProcentELINIAEff] float,
+  [ProcentELINIAObb] float,
+  [ProcentELINIAStd] float,
   [ProcentEPracEff] float,
   [ProcentEPracObb] float,
   [ProcentEPracStd] float,
@@ -155,7 +155,7 @@ GO
 ALTER TABLE [LokalizacjaFunkcjonalna] ADD FOREIGN KEY ([LiniaId]) REFERENCES [Linie] ([LiniaId])
 GO
 
-ALTER TABLE [BilansProdukcji] ADD FOREIGN KEY ([LiniaId]) REFERENCES [Linie] ([LiniaId])
+ALTER TABLE [BilansProdukcji] ADD FOREIGN KEY ([Linia]) REFERENCES [Linie] ([LiniaId])
 GO
 
 ALTER TABLE [BilansProdukcji] ADD FOREIGN KEY ([Od]) REFERENCES [Data] ([Data])
@@ -169,7 +169,6 @@ GO
 
 ALTER TABLE [Zawiadomienia] ADD FOREIGN KEY ([DataKoncaZaklocenia]) REFERENCES [Data] ([Data])
 GO
-
 
 DECLARE @StartDate DATE = '2010-01-01';
 DECLARE @EndDate DATE = '2030-12-31';
