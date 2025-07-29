@@ -11,7 +11,7 @@ CREATE TABLE [Zawiadomienia] (
   [ZawiadomienieRodzaj] varchar(10),
   [ZlecenieId] bigint,
   [Lokalizacja] varchar(20),
-  [LokalizacjaFunkcjonalnaId] varchar(20),
+  [LokalizacjaFunkcjonalnaId] varchar(30),
   [UrzadzenieId] int,
   [DataUtworzenia] date,
   [UszkodzenieId] int,
