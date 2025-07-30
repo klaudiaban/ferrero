@@ -170,6 +170,7 @@ GO
 ALTER TABLE [Zawiadomienia] ADD FOREIGN KEY ([DataKoncaZaklocenia]) REFERENCES [Data] ([Data])
 GO
 
+SET LANGUAGE Polish;
 DECLARE @StartDate DATE = '2010-01-01';
 DECLARE @EndDate DATE = '2030-12-31';
 SET DATEFIRST 1;
