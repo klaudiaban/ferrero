@@ -33,7 +33,7 @@ CREATE TABLE [Linie] (
 GO
 
 CREATE TABLE [LokalizacjaFunkcjonalna] (
-  [LokalizacjaFunkcjonalnaId] varchar(20) PRIMARY KEY,
+  [LokalizacjaFunkcjonalnaId] varchar(30) PRIMARY KEY,
   [LokalizacjaFunkcjonalnaNazwa] varchar(50),
   [LiniaId] int
 )
