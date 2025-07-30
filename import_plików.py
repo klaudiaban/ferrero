@@ -183,8 +183,28 @@ try:
         "ProcentZyskuStd": "float"
     })
 
-    bilansprodukcji.to_sql('BilansProdukcji', con=engine, if_exists='append', index=False)
-    print(f"Inserted {len(bilansprodukcji)} new records from {csv_file_bilansprodukcji} into the BilansProdukcji table.")
+    existing_keys = pd.read_sql("""
+        SELECT Od, Linia, Rodzina FROM BilansProdukcji
+    """, con=engine)
+
+    existing_keys["Od"] = pd.to_datetime(existing_keys["Od"])
+    existing_keys["Linia"] = existing_keys["Linia"].astype(int)
+    existing_keys["Rodzina"] = existing_keys["Rodzina"].astype(str)
+
+    merged = bilansprodukcji.merge(
+        existing_keys,
+        on=["Od", "Linia", "Rodzina"],
+        how="left",
+        indicator=True
+    )
+
+    new_rows = merged[merged["_merge"] == "left_only"].drop(columns=["_merge"])
+
+    if not new_rows.empty:
+        new_rows.to_sql("BilansProdukcji", con=engine, if_exists="append", index=False)
+        print(f"Inserted {len(new_rows)} new records from {csv_file_bilansprodukcji} into the BilansProdukcji table.")
+    else:
+        print("No new rows to insert.")
 
     os.remove(file_path_bilansprodukcji)
 except StopIteration:
